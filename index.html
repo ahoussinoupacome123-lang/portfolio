@@ -77,6 +77,9 @@ svg{display:block}
 .avail i{width:8px;height:8px;border-radius:50%;background:var(--tang);box-shadow:0 0 0 0 rgba(255,90,31,.6);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,90,31,0)}100%{box-shadow:0 0 0 0 rgba(255,90,31,0)}}
 @keyframes fade{from{opacity:0}}
+.hero-links{display:flex;gap:16px}
+.hero-links a{border-bottom:1.5px solid currentColor;padding-bottom:2px;transition:color .3s}
+.hero-links a:hover{color:var(--cobalt)}
 .mq{overflow:hidden;white-space:nowrap}
 .mq-track{display:flex;width:max-content;will-change:transform}
 .mq-track>span{display:inline-flex;align-items:center;flex:none}
@@ -224,6 +227,10 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .send:hover{background:var(--mist)}
 .mail{font-family:var(--f-serif);font-size:clamp(1.3rem,2vw,1.9rem);user-select:all;-webkit-user-select:all;overflow-wrap:anywhere}
 .reach .lab{opacity:.75}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.links a{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border:1.5px solid currentColor;border-radius:12px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background-color .3s,color .3s}
+.links a:hover{background:var(--white);color:var(--cobalt);border-color:var(--white)}
+.links svg{width:10px;height:10px}
 .foot-name-wrap{position:relative;margin-top:clamp(48px,7vw,110px);padding-top:clamp(70px,9vw,120px);border-top:1px solid rgba(247,247,250,.4)}
 .foot-name{display:inline-block;white-space:nowrap;font-size:12.2vw;line-height:.86;padding-top:.1em}
 .hint{position:absolute;right:0;top:-30px;opacity:.75}
@@ -282,6 +289,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
     <div class="hero-meta">
       <p class="hero-role"><span data-t="role1">Computer Science Student</span><em data-t="role2">Software &amp; Web Developer</em></p>
       <p class="lab avail"><i></i>Based in Cotonou, Benin</p>
+      <p class="hero-links lab" id="hero-links"></p>
     </div>
     <h1 class="hero-name mq big" aria-label="Pacôme Ahoussinou">
       <span class="mq-track" aria-hidden="true"><span><span data-t="name">Pacôme Ahoussinou</span><svg class="star" viewBox="0 0 100 100"><g fill="currentColor"><rect x="43" y="2" width="14" height="96" rx="7"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(45 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(90 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(135 50 50)"/></g></svg></span></span>
@@ -377,6 +385,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
           <button class="send" id="send" type="button">Copy my email</button>
           <span class="mail" id="mail" data-t="email">ahoussinoupacome123@gmail.com</span>
           <span class="lab">Email is the fastest way to reach me</span>
+          <div class="links" id="links"></div>
         </div>
       </div>
       <div class="foot-name-wrap">
@@ -442,7 +451,10 @@ $('.about-p').innerHTML = SITE.about.replace('{first}', SITE.first).split(/\s+/)
   const hl = /^\*.*\*[.,]?$/.test(w); return `<span class="w${hl ? ' hl' : ''}">${esc(w.replace(/\*/g, ''))}</span>`;
 }).join(' ');
 if (SITE.github) $('#more').href = SITE.github;
-$('#socials').innerHTML = SITE.socials.map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
+const linkHTML = (s, arrow) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}${arrow ? '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg>' : ''}</a>`;
+$('#socials').innerHTML = SITE.socials.map(s => `<li>${linkHTML(s)}</li>`).join('');
+$('#hero-links').innerHTML = SITE.socials.map(s => linkHTML(s)).join('');
+$('#links').innerHTML = SITE.socials.map(s => linkHTML(s, true)).join('');
 
 const coverHTML = (p, i) => `<div class="cover k${i % 4}" style="--cb:var(${p.cover[0]});--cf:var(${p.cover[1]});--ca:var(${p.cover[2]})"><small>${esc(p.type)}</small><i></i><b style="font-size:${Math.min(30, 184 / (p.short || p.name).length).toFixed(1)}cqw">${esc(p.short || p.name.split(' ')[0])}</b></div>`;
 $('.rows').innerHTML = SITE.projects.map((p, i) => {
