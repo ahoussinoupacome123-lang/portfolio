@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Pacôme Ahoussinou, third-year Computer Science student at EPITECH Benin, building web apps, low-level systems and AI tools.">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -128,6 +129,14 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .caps .lab{color:var(--c)}
 .caps li{font-size:clamp(1rem,1.4vw,1.25rem);line-height:1.55}
 
+.bg{margin-top:clamp(40px,6vw,88px)}
+.bg>.lab{color:rgba(247,247,250,.55);padding-bottom:14px}
+.bg li{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1.5fr) minmax(0,1fr);gap:6px 24px;align-items:baseline;padding-block:16px;border-top:1px solid rgba(247,247,250,.22)}
+.bg li:last-child{border-bottom:1px solid rgba(247,247,250,.22)}
+.when{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sun)}
+.bg b{font-weight:500;font-size:clamp(1.05rem,1.6vw,1.4rem);line-height:1.25}
+.where{color:rgba(247,247,250,.7);text-align:right}
+
 /* band */
 .band{background:var(--tang);color:var(--ink);padding-block:clamp(12px,1.8vw,24px)}
 .band .mq-track{font-size:clamp(2.4rem,6.4vw,6rem)}
@@ -149,7 +158,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .row{border-top:1px solid color-mix(in srgb,currentColor 26%,transparent)}
 .row:last-child{border-bottom:1px solid color-mix(in srgb,currentColor 26%,transparent)}
 .row-in{transition:opacity .4s ease;display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto;align-items:center;column-gap:16px;padding-block:clamp(12px,1.6vw,24px)}
-.row-name{font-size:clamp(2.7rem,9.4vw,9.4rem);overflow-wrap:anywhere;transition:transform .7s var(--out)}
+.row-name{font-size:clamp(2.5rem,7.6vw,7.6rem);overflow-wrap:anywhere;transition:transform .7s var(--out)}
 .row-meta{text-align:right;font-size:clamp(.85rem,1.1vw,1.05rem);font-weight:500;display:grid;gap:2px}
 .row-meta span:last-child{opacity:.6}
 .row .cover{display:none}
@@ -247,9 +256,9 @@ html.js [data-split].in .ch{opacity:1;transform:none}
   .nav ul{display:none} .logo span{display:none} .nav ul+.hire{margin-left:auto}
   .scroll{display:none}
   .about-body{grid-template-columns:1fr} .arrow{justify-self:start;width:64px}
-  .caps{grid-template-columns:1fr}
+  .caps{grid-template-columns:1fr} .bg li{grid-template-columns:1fr} .where{text-align:left}
   .row-in{grid-template-columns:2.2rem minmax(0,1fr);row-gap:4px}
-  .row-meta{grid-column:2;text-align:left;display:flex;gap:10px}
+  .row-meta{grid-column:2;text-align:left;display:flex;flex-wrap:wrap;gap:2px 10px}
   .proc-card{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);height:min(84svh,720px)}
   .proc-l{grid-template-rows:auto auto auto auto}
   .proc-words{display:flex;flex-wrap:wrap;gap:0 .3em}
@@ -292,8 +301,8 @@ html.js [data-split].in .ch{opacity:1;transform:none}
   <div class="hero-in">
     <i class="arc a"></i><i class="arc b"></i>
     <div class="hero-meta">
-      <p class="hero-role"><span data-t="role1">Freelance</span><em data-t="role2">Designer &amp; Developer</em></p>
-      <p class="lab avail"><i></i>Open for new projects</p>
+      <p class="hero-role"><span data-t="role1">Computer Science Student</span><em data-t="role2">Software &amp; Web Developer</em></p>
+      <p class="lab avail"><i></i>Open to a 4-month alternance</p>
     </div>
     <h1 class="hero-name mq big" aria-label="Pacôme Ahoussinou">
       <span class="mq-track" aria-hidden="true"><span><span data-t="name">Pacôme Ahoussinou</span><svg class="star" viewBox="0 0 100 100"><g fill="currentColor"><rect x="43" y="2" width="14" height="96" rx="7"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(45 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(90 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(135 50 50)"/></g></svg></span></span>
@@ -319,27 +328,37 @@ html.js [data-split].in .ch{opacity:1;transform:none}
         <p class="about-p" data-t="about"></p>
       </div>
       <div class="caps">
-        <div data-rv style="--c:var(--sun)"><h3 class="lab">Design</h3><ul><li>Brand identity</li><li>Web &amp; interface design</li><li>Art direction</li></ul></div>
-        <div data-rv style="--c:var(--pink)"><h3 class="lab">Build</h3><ul><li>Front-end development</li><li>Motion &amp; interaction</li><li>Fast, accessible pages</li></ul></div>
-        <div data-rv style="--c:var(--tang)"><h3 class="lab">Guide</h3><ul><li>Digital strategy</li><li>Content structure</li><li>Launch &amp; support</li></ul></div>
+        <div data-rv style="--c:var(--sun)"><h3 class="lab">Languages</h3><ul><li>C &amp; C++</li><li>JavaScript &amp; TypeScript</li><li>HTML &amp; CSS</li></ul></div>
+        <div data-rv style="--c:var(--pink)"><h3 class="lab">Web &amp; data</h3><ul><li>React, Next.js &amp; Tailwind CSS</li><li>Node.js &amp; REST APIs</li><li>PostgreSQL, MySQL &amp; SQLite</li></ul></div>
+        <div data-rv style="--c:var(--tang)"><h3 class="lab">Systems &amp; tools</h3><ul><li>Linux &amp; Docker</li><li>Networking &amp; automation with n8n</li><li>Git, GNU Make &amp; Valgrind</li></ul></div>
+      </div>
+      <div class="bg">
+        <h3 class="lab">Background</h3>
+        <ul>
+          <li data-rv><span class="when">2024 – 2027</span><b>Bachelor's in Computer Science, third year</b><span class="where">EPITECH Benin, Cotonou</span></li>
+          <li data-rv><span class="when">Oct – Dec 2025</span><b>ICT &amp; IT Teacher</b><span class="where">Datus International School, Ghana</span></li>
+          <li data-rv><span class="when">Feb – Aug 2024</span><b>Teaching Assistant</b><span class="where">GISAM College, Ashaiman, Ghana</span></li>
+          <li data-rv><span class="when">Leadership</span><b>President of EPIMUSIK, a student music club of about 30 members</b><span class="where">EPITECH Benin</span></li>
+          <li data-rv><span class="when">Languages</span><b>French, English, Spanish, Fon &amp; Twi</b><span class="where">Native French, professional English</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <div class="band mq big" aria-hidden="true">
-    <span class="mq-track"><span><span data-t="name">Pacôme Ahoussinou</span><svg class="star" viewBox="0 0 100 100"><g fill="currentColor"><rect x="43" y="2" width="14" height="96" rx="7"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(45 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(90 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(135 50 50)"/></g></svg>Digital product &amp; brand<svg class="star" viewBox="0 0 100 100"><g fill="currentColor"><rect x="43" y="2" width="14" height="96" rx="7"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(45 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(90 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(135 50 50)"/></g></svg></span></span>
+    <span class="mq-track"><span><span data-t="name">Pacôme Ahoussinou</span><svg class="star" viewBox="0 0 100 100"><g fill="currentColor"><rect x="43" y="2" width="14" height="96" rx="7"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(45 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(90 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(135 50 50)"/></g></svg>Software &amp; web development<svg class="star" viewBox="0 0 100 100"><g fill="currentColor"><rect x="43" y="2" width="14" height="96" rx="7"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(45 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(90 50 50)"/><rect x="43" y="2" width="14" height="96" rx="7" transform="rotate(135 50 50)"/></g></svg></span></span>
   </div>
 
   <section class="work" id="work">
     <div class="floods" aria-hidden="true"></div>
     <div class="wrap">
       <div class="work-top">
-        <p class="lede" data-rv>Every project gets the same deal. I listen first, design with intent, and ship work that <em>still holds up</em> long after launch day.</p>
+        <p class="lede" data-rv>School projects, a hackathon and things I built for myself. They run from low-level C and C++ to full web platforms, and each one <em>taught me something</em> I use on the next.</p>
         <a class="circle mag" href="#contact">Get in<br>touch</a>
       </div>
-      <div class="work-lab lab"><span>Selected work</span><span>Sample projects</span><span>03/05</span></div>
+      <div class="work-lab lab"><span>Selected work</span><span>08 projects</span><span>03/05</span></div>
       <ul class="rows"></ul>
-      <p class="more"><a href="#contact">Ask for the full case studies<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg></a></p>
+      <p class="more"><a id="more" href="https://github.com/ahoussinoupacome123-lang" target="_blank" rel="noopener">See more on GitHub<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg></a></p>
     </div>
   </section>
 
@@ -352,8 +371,8 @@ html.js [data-split].in .ch{opacity:1;transform:none}
             <ol class="proc-words big"><li class="on">Define</li><li>Design</li><li>Deliver</li></ol>
             <div class="proc-txt">
               <p class="on">We start with your goals, your audience and your limits. I ask a lot of questions, map the scope, and write down what success looks like before a single pixel moves.</p>
-              <p>I turn the brief into a visual direction with type, colour, layout and motion. You see real screens early, and we shape them together until they feel right.</p>
-              <p>I build it, test it on real devices and launch it. You get a fast site, a clean handover, and someone to call after it goes live.</p>
+              <p>I turn the brief into a plan: the structure, the interface and the technical choices behind them. You see something real early, and we shape it together until it feels right.</p>
+              <p>I build it, test it and ship it. You get working software, a clean handover, and someone to call after it goes live.</p>
             </div>
             <div class="proc-bar"><i></i></div>
           </div>
@@ -380,8 +399,8 @@ html.js [data-split].in .ch{opacity:1;transform:none}
         </div>
         <div class="reach" data-rv>
           <button class="send mag" id="send" type="button">Copy my email</button>
-          <span class="mail" id="mail" data-t="email">hello@yourdomain.com</span>
-          <span class="lab">Replies within two working days</span>
+          <span class="mail" id="mail" data-t="email">ahoussinoupacome123@gmail.com</span>
+          <span class="lab">Email is the fastest way to reach me</span>
         </div>
       </div>
       <div class="foot-name-wrap">
@@ -389,7 +408,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
         <div class="big foot-name" data-t="name" aria-hidden="true">Pacôme Ahoussinou</div>
       </div>
       <div class="foot">
-        <span>© 2026 <span data-t="name">Pacôme Ahoussinou</span>. All rights reserved.</span>
+        <span>© 2026 <span data-t="name">Pacôme Ahoussinou</span> · Cotonou, Benin</span>
         <ul id="socials"></ul>
         <a href="#top">Back to top ↑</a>
       </div>
@@ -405,24 +424,28 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 const SITE = {
   first: 'Pacôme',
   last: 'Ahoussinou',
-  role: ['Freelance', 'Designer & Developer'],
-  email: 'hello@yourdomain.com',
+  role: ['Computer Science Student', 'Software & Web Developer'],
+  email: 'ahoussinoupacome123@gmail.com',
+  github: 'https://github.com/ahoussinoupacome123-lang',
   photo: '',   // put a portrait URL (or data: URI) here to replace the animated artwork in the hero
-  about: "I'm {first}, an independent designer and developer. I shape *brands* and build the *websites* that carry them, with clear structure, bold type and motion that earns its place. I stay on the project from the first sketch to the last line of code, so nothing gets *lost* between the design and the build.",
+  about: "I'm {first}, a third-year Computer Science student at EPITECH Benin, based in Cotonou. I build *web* *apps,* *low-level* *systems* and *AI* *tools,* from C and C++ to React and Next.js. I'm looking for a four-month *alternance* in software development or IT, two days a week in the company.",
   // flood = colour the page turns on hover, fg = text colour on it, cover = [background, text, accent]
+  // short = the word shown on the preview card, url = where the row links to ('' when there is no public link)
   projects: [
-    { name: 'Lagune Studio', type: 'Brand & Web',    year: '2026', flood: '--cobalt', fg: '--white', cover: ['--sun', '--ink', '--tang'],     url: '' },
-    { name: 'Kori Market',   type: 'E-commerce',     year: '2025', flood: '--tang',   fg: '--ink',   cover: ['--ink', '--pink', '--cobalt'],  url: '' },
-    { name: 'Atlas Notes',   type: 'Product Design', year: '2025', flood: '--sun',    fg: '--ink',   cover: ['--cobalt', '--white', '--pink'], url: '' },
-    { name: 'Sunu Radio',    type: 'Web & Motion',   year: '2024', flood: '--pink',   fg: '--ink',   cover: ['--white', '--ink', '--tang'],   url: '' },
+    { name: 'HemoLink',             short: 'HemoLink',  type: 'Web application',       stack: 'Next.js · TypeScript · Tailwind', flood: '--tang',   fg: '--ink',   cover: ['--white', '--ink', '--tang'],    url: 'https://github.com/ahoussinoupacome123-lang/HEMOLINK' },
+    { name: 'R-Type',               short: 'R-Type',    type: 'Multiplayer game',      stack: 'C++17 · UDP · ECS engine',        flood: '--cobalt', fg: '--white', cover: ['--sun', '--ink', '--tang'],      url: '' },
+    { name: 'Business OS Africa',   short: 'BOSA',      type: 'SaaS platform',         stack: 'Next.js · NestJS · PostgreSQL',   flood: '--sun',    fg: '--ink',   cover: ['--cobalt', '--white', '--pink'], url: '' },
+    { name: 'Raytracer',            short: 'Raytracer', type: '3D rendering engine',   stack: 'C · CSFML',                       flood: '--ink',    fg: '--white', cover: ['--pink', '--ink', '--cobalt'],   url: '' },
+    { name: 'Zappy',                short: 'Zappy',     type: 'Client/server game',    stack: 'C · C++ · Networking',            flood: '--pink',   fg: '--ink',   cover: ['--ink', '--sun', '--cobalt'],    url: '' },
+    { name: 'Sensai Q&A',           short: 'Sensai',    type: 'AI document assistant', stack: 'Python',                          flood: '--white',  fg: '--ink',   cover: ['--cobalt', '--white', '--sun'],  url: '' },
+    { name: 'NanoTekSpice',         short: 'NanoTek',   type: 'Circuit simulator',     stack: 'C++',                             flood: '--cobalt', fg: '--white', cover: ['--ink', '--pink', '--sun'],      url: '' },
+    { name: 'AI Website Generator', short: 'AI Sites',  type: 'Hackathon project',     stack: 'Python · FastAPI · Docker',       flood: '--sun',    fg: '--ink',   cover: ['--tang', '--ink', '--white'],    url: '' },
   ],
-  socials: [   // replace with your own profile links
-    { label: 'LinkedIn',  url: 'https://www.linkedin.com/' },
-    { label: 'Instagram', url: 'https://www.instagram.com/' },
-    { label: 'Behance',   url: 'https://www.behance.net/' },
-    { label: 'GitHub',    url: 'https://github.com/' },
+  socials: [
+    { label: 'GitHub',   url: 'https://github.com/ahoussinoupacome123-lang' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahoussinou-pacome-182313333' },
   ],
-  notes: ['Say hello', 'Got a brief?', 'Coffee first?', "Let's make it move", 'Yes, I’m free'],
+  notes: ['Say hello', 'Alternance?', 'Coffee first?', "Let's build it", 'Free Thu & Fri'],
 };
 /* ─────────────────────────────────────────── */
 
@@ -443,12 +466,13 @@ $('.hero-name').setAttribute('aria-label', full);
 $('.about-p').innerHTML = SITE.about.replace('{first}', SITE.first).split(/\s+/).map(w => {
   const hl = /^\*.*\*[.,]?$/.test(w); return `<span class="w${hl ? ' hl' : ''}">${esc(w.replace(/\*/g, ''))}</span>`;
 }).join(' ');
+if (SITE.github) $('#more').href = SITE.github;
 $('#socials').innerHTML = SITE.socials.map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join('');
 
-const coverHTML = (p, i) => `<div class="cover k${i % 4}" style="--cb:var(${p.cover[0]});--cf:var(${p.cover[1]});--ca:var(${p.cover[2]})"><small>${esc(p.type)} · ${esc(p.year)}</small><i></i><b>${esc(p.name.split(' ')[0])}</b></div>`;
+const coverHTML = (p, i) => `<div class="cover k${i % 4}" style="--cb:var(${p.cover[0]});--cf:var(${p.cover[1]});--ca:var(${p.cover[2]})"><small>${esc(p.type)}</small><i></i><b style="font-size:${Math.min(30, 184 / (p.short || p.name).length).toFixed(1)}cqw">${esc(p.short || p.name.split(' ')[0])}</b></div>`;
 $('.rows').innerHTML = SITE.projects.map((p, i) => {
   const tag = p.url ? `a href="${esc(p.url)}" target="_blank" rel="noopener"` : 'div';
-  return `<li class="row" data-i="${i}" data-rv data-cur="${p.url ? 'View' : 'Soon'}"><${tag} class="row-in">${coverHTML(p, i)}<span class="lab">${String(i + 1).padStart(2, '0')}</span><h3 class="row-name big">${esc(p.name)}</h3><span class="row-meta"><span>${esc(p.type)}</span><span>${esc(p.year)}</span></span></${p.url ? 'a' : 'div'}></li>`;
+  return `<li class="row" data-i="${i}" data-rv data-cur="${p.url ? 'View' : 'Ask me'}"><${tag} class="row-in">${coverHTML(p, i)}<span class="lab">${String(i + 1).padStart(2, '0')}</span><h3 class="row-name big">${esc(p.name)}</h3><span class="row-meta"><span>${esc(p.type)}</span><span>${esc(p.stack)}</span></span></${p.url ? 'a' : 'div'}></li>`;
 }).join('');
 $('.pv-track').innerHTML = SITE.projects.map(coverHTML).join('');
 
