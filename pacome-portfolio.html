@@ -129,13 +129,14 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 
 .certs{margin-top:clamp(40px,6vw,88px)}
 .certs>.lab{color:rgba(247,247,250,.55);padding-bottom:14px}
-.cert{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center;width:100%;text-align:left;padding-block:20px;border-block:1px solid rgba(247,247,250,.22)}
-.cert img{display:block;width:100%;height:auto;border-radius:8px;background:var(--white);transition:transform .5s var(--out)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.6vw,40px);padding-top:20px;border-top:1px solid rgba(247,247,250,.22)}
+.cert{display:grid;gap:14px;align-content:start;width:100%;text-align:left}
+.cert img{display:block;width:100%;height:auto;aspect-ratio:1600/1131;object-fit:cover;border-radius:8px;background:var(--white);transition:transform .5s var(--out)}
 .cert:hover img{transform:scale(1.02)}
-.cert-txt{display:grid;gap:8px;justify-items:start}
-.cert-txt b{font-weight:500;font-size:clamp(1.15rem,2vw,1.8rem);line-height:1.2}
+.cert-txt{display:grid;gap:6px;justify-items:start}
+.cert-txt b{font-weight:500;font-size:clamp(1.1rem,1.55vw,1.4rem);line-height:1.2}
 .cert-by{color:rgba(247,247,250,.7)}
-.cert .repo{margin-top:8px}
+.cert .repo{margin-top:6px;font-size:.9rem}
 .dlg{border:0;padding:0;background:none;color:var(--white);width:min(94vw,1100px);max-width:none;max-height:94vh;overflow:visible}
 .dlg::backdrop{background:rgba(14,14,19,.86)}
 .dlg img{display:block;width:100%;height:auto;max-height:84vh;object-fit:contain;border-radius:10px;background:var(--white)}
@@ -297,7 +298,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
   .nav ul{display:none} .logo span{display:none} .pr b{display:none} .status a{margin-left:0} .nav ul+.hire{margin-left:auto}
   .scroll{display:none}
   .about-body{grid-template-columns:1fr} .code{order:2}
-  .caps{grid-template-columns:1fr} .cert{grid-template-columns:1fr} .bg li{grid-template-columns:1fr} .where{text-align:left}
+  .caps{grid-template-columns:1fr} .cert-grid{grid-template-columns:1fr;gap:28px} .bg li{grid-template-columns:1fr} .where{text-align:left}
   .row-in{grid-template-columns:2.2rem minmax(0,1fr) 2.4rem;row-gap:4px} .plus{order:3} .row-meta{order:4}
   .row-more-pad{grid-template-columns:1fr;padding-left:0} .also{grid-template-columns:1fr}
   .row-meta{grid-column:2;text-align:left;display:flex;flex-wrap:wrap;gap:2px 10px}
@@ -389,15 +390,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
       </div>
       <div class="certs">
         <h3 class="lab">Certificates</h3>
-        <button class="cert" id="cert-open" type="button" aria-haspopup="dialog" data-rv>
-          <img src="certificate-chisquares.jpg" width="1600" height="1131" loading="lazy" alt="Certificate of Attendance from CHISQUARES for Ahoussinou Pacôme, webinar Introduction to Web Design with HTML and CSS, November 12 to December 10, 2024">
-          <span class="cert-txt">
-            <span class="when">12 Nov – 10 Dec 2024</span>
-            <b>Introduction to Web Design with HTML and CSS</b>
-            <span class="cert-by">Certificate of Attendance · CHISQUARES</span>
-            <span class="repo">View the certificate<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg></span>
-          </span>
-        </button>
+        <div class="cert-grid" id="certs"></div>
       </div>
     </div>
   </section>
@@ -493,9 +486,9 @@ html.js [data-split].in .ch{opacity:1;transform:none}
   </section>
 </main>
 
-<dialog class="dlg" id="cert-dlg" aria-label="Certificate of Attendance, CHISQUARES">
+<dialog class="dlg" id="cert-dlg" aria-label="Certificate">
   <form method="dialog"><button class="dlg-x" type="submit">Close ✕</button></form>
-  <img src="certificate-chisquares.jpg" width="1600" height="1131" alt="Certificate of Attendance from CHISQUARES for Ahoussinou Pacôme, webinar Introduction to Web Design with HTML and CSS, November 12 to December 10, 2024">
+  <img id="cert-big" width="1600" height="1131" alt="">
 </dialog>
 <div class="pv" aria-hidden="true"><div class="pv-in"><div class="pv-track"></div></div></div>
 
@@ -536,6 +529,11 @@ const SITE = {
       tags: ['Python', 'FastAPI', 'Jinja2', 'SQLite', 'Docker'] },
   ],
   also: ['My_Radar', 'My_TOP', 'My_LS', 'EPYTODO', 'My_Torch', 'AI Newsletter Aggregator', 'Personal Canteen Web App'],
+  certs: [
+    { img: 'certificate-isoc-thrive.jpg', title: 'What the Internet Needs to Thrive', kind: 'Certificate of Completion', by: 'Internet Society', when: '6 Nov 2026' },
+    { img: 'certificate-isoc-exist.jpg',  title: 'What the Internet Needs to Exist',  kind: 'Certificate of Completion', by: 'Internet Society', when: '4 Nov 2026' },
+    { img: 'certificate-chisquares.jpg',  title: 'Introduction to Web Design with HTML and CSS', kind: 'Certificate of Attendance', by: 'CHISQUARES', when: '12 Nov – 10 Dec 2024' },
+  ],
   // used by the terminal section
   skills: {
     Languages: 'C, C++, JavaScript, TypeScript, HTML, CSS',
@@ -552,7 +550,6 @@ const SITE = {
   education: [
     ['2024 – 2027', "Bachelor's in Computer Science, third year", 'EPITECH Benin, Cotonou'],
     ['2022 – 2024', 'High School Diploma', 'Common Wealth College La Paz, Accra'],
-    ['Nov – Dec 2024', 'Certificate of Attendance: Intro to Web Design with HTML & CSS', 'CHISQUARES'],
   ],
   languages: 'French (native), English (professional), Spanish (elementary), Fon and Twi',
   interests: 'Software engineering, web development, cybersecurity, AI, Linux, automation',
@@ -749,11 +746,20 @@ send.addEventListener('click', () => {
   try { navigator.clipboard.writeText(SITE.email).then(() => done(true), pick); } catch (e) { pick(); }
 });
 
-/* certificate viewer */
-(function cert() {
-  const d = $('#cert-dlg'), b = $('#cert-open');
-  if (!d || !b || !d.showModal) return;
-  b.addEventListener('click', () => d.showModal());
+/* certificates + viewer */
+(function certs() {
+  const certAlt = c => `${c.kind} from ${c.by} for ${full}: ${c.title}, ${c.when}`;
+  $('#certs').innerHTML = SITE.certs.map((c, i) => `<button class="cert" type="button" data-i="${i}" aria-haspopup="dialog" data-rv>
+    <img src="${esc(c.img)}" width="1600" height="1131" loading="lazy" alt="${esc(certAlt(c))}">
+    <span class="cert-txt"><span class="when">${esc(c.when)}</span><b>${esc(c.title)}</b><span class="cert-by">${esc(c.kind)} · ${esc(c.by)}</span><span class="repo">View the certificate${arrowSVG}</span></span>
+  </button>`).join('');
+  $$('.cert').forEach(n => io.observe(n));
+  const d = $('#cert-dlg'), big = $('#cert-big');
+  if (!d.showModal) return;
+  $('#certs').addEventListener('click', e => {
+    const b = e.target.closest('.cert'); if (!b) return;
+    const c = SITE.certs[b.dataset.i]; big.src = c.img; big.alt = certAlt(c); d.setAttribute('aria-label', `${c.kind}, ${c.by}`); d.showModal();
+  });
   d.addEventListener('click', e => { if (e.target === d) d.close(); });
 })();
 
@@ -763,11 +769,11 @@ send.addEventListener('click', () => {
   const PROMPT = '<span class="pr">~$</span> ';
   const PAD = innerWidth < 560 ? 12 : 16;
   const link = (label, url) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`;
-  const table = rows => rows.map(r => `<span class="t-hi">${esc(r[0].padEnd(PAD))}</span>${esc(r[1])}${r[2] ? '  ·  ' + esc(r[2]) : ''}`);
+  const table = rows => rows.map(r => `<span class="t-hi">${esc((r[0] + '  ').padEnd(PAD))}</span>${esc(r[1])}${r[2] ? '  ·  ' + esc(r[2]) : ''}`);
   const projectLine = (p, i) => `<span class="t-hi">${i + 1}.</span> ${esc(p.name.padEnd(22))}${esc(p.type)}`;
   const files = { 'about.txt': 'whoami', 'skills.json': 'skills', 'projects.md': 'projects', 'contact.md': 'contact' };
   const C = {
-    help: () => table([['help', 'show this list'], ['whoami', 'who I am, in two lines'], ['skills', 'languages, frameworks and tools'], ['projects', 'what I have built'], ['open <n>', 'details of project number n'], ['experience', 'work and leadership'], ['education', 'school and certificates'], ['languages', 'what I speak'], ['interests', 'what I like to dig into'], ['contact', 'email, GitHub and LinkedIn'], ['ls, cat <f>', 'look around'], ['clear', 'clear the screen']]),
+    help: () => table([['help', 'show this list'], ['whoami', 'who I am, in two lines'], ['skills', 'languages, frameworks and tools'], ['projects', 'what I have built'], ['open <n>', 'details of project number n'], ['experience', 'work and leadership'], ['education', 'where I studied'], ['certificates', 'courses I completed'], ['languages', 'what I speak'], ['interests', 'what I like to dig into'], ['contact', 'email, GitHub and LinkedIn'], ['ls, cat <f>', 'look around'], ['clear', 'clear the screen']]),
     whoami: () => [`<span class="t-hi">${esc(full)}</span>, ${esc(SITE.role[1])}`, 'Third-year Computer Science student at EPITECH Benin, based in Cotonou.'],
     skills: () => table(Object.entries(SITE.skills)),
     projects: () => [...SITE.projects.map(projectLine), '', 'Type <span class="t-hi">open 1</span> to read about one of them.'],
@@ -778,6 +784,7 @@ send.addEventListener('click', () => {
     },
     experience: () => table(SITE.experience),
     education: () => table(SITE.education),
+    certificates: () => table(SITE.certs.map(c => [c.when, c.title, c.kind + ', ' + c.by])),
     languages: () => [esc(SITE.languages)],
     interests: () => [esc(SITE.interests)],
     contact: () => [`<span class="t-hi">${'email'.padEnd(PAD)}</span>${esc(SITE.email)}`, ...SITE.socials.map(x => `<span class="t-hi">${esc(x.label.toLowerCase().padEnd(PAD))}</span>${link(x.url.replace('https://', '').replace('www.', ''), x.url)}`)],
@@ -808,7 +815,7 @@ send.addEventListener('click', () => {
     else if (e.key === 'Tab' && inp.value.trim()) { const m = Object.keys(C).concat('clear').filter(k => k.startsWith(inp.value.trim().toLowerCase())); if (m.length === 1) { e.preventDefault(); inp.value = m[0] + ' '; } }
   });
   out.addEventListener('click', e => { if (!e.target.closest('a') && !String(getSelection()).length) inp.focus({ preventScroll: true }); });
-  $('#chips').innerHTML = ['help', 'whoami', 'skills', 'projects', 'open 1', 'experience', 'education', 'contact', 'clear'].map(c => `<button type="button" data-c="${c}">${c}</button>`).join('');
+  $('#chips').innerHTML = ['help', 'whoami', 'skills', 'projects', 'open 1', 'experience', 'education', 'certificates', 'contact', 'clear'].map(c => `<button type="button" data-c="${c}">${c}</button>`).join('');
   $('#chips').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; run(b.dataset.c); if (fine) inp.focus({ preventScroll: true }); });
   run('whoami'); run('help'); out.scrollTop = 0;
 })();
