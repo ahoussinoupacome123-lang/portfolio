@@ -136,6 +136,21 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .bg b{font-weight:500;font-size:clamp(1.05rem,1.6vw,1.4rem);line-height:1.25}
 .where{color:rgba(247,247,250,.7);text-align:right}
 
+.certs{margin-top:clamp(40px,6vw,88px)}
+.certs>.lab{color:rgba(247,247,250,.55);padding-bottom:14px}
+.cert{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center;width:100%;text-align:left;padding-block:20px;border-block:1px solid rgba(247,247,250,.22)}
+.cert img{display:block;width:100%;height:auto;border-radius:8px;background:var(--white);transition:transform .5s var(--out)}
+.cert:hover img{transform:scale(1.02)}
+.cert-txt{display:grid;gap:8px;justify-items:start}
+.cert-txt b{font-weight:500;font-size:clamp(1.15rem,2vw,1.8rem);line-height:1.2}
+.cert-by{color:rgba(247,247,250,.7)}
+.cert .repo{margin-top:8px}
+.dlg{border:0;padding:0;background:none;color:var(--white);width:min(94vw,1100px);max-width:none;max-height:94vh;overflow:visible}
+.dlg::backdrop{background:rgba(14,14,19,.86)}
+.dlg img{display:block;width:100%;height:auto;max-height:84vh;object-fit:contain;border-radius:10px;background:var(--white)}
+.dlg form{display:flex;justify-content:flex-end;margin-bottom:10px}
+.dlg-x{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:9px 14px;border:1px solid rgba(247,247,250,.5);border-radius:9px;background:var(--ink)}
+
 /* band */
 .band{background:var(--cobalt);color:var(--white);padding-block:clamp(12px,1.8vw,24px)}
 .band .mq-track{font-size:clamp(2.4rem,6.4vw,6rem)}
@@ -291,7 +306,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
   .nav ul{display:none} .logo span{display:none} .pr b{display:none} .status a{margin-left:0} .nav ul+.hire{margin-left:auto}
   .scroll{display:none}
   .about-body{grid-template-columns:1fr} .code{order:2}
-  .caps{grid-template-columns:1fr} .bg li{grid-template-columns:1fr} .where{text-align:left}
+  .caps{grid-template-columns:1fr} .cert{grid-template-columns:1fr} .bg li{grid-template-columns:1fr} .where{text-align:left}
   .row-in{grid-template-columns:2.2rem minmax(0,1fr) 2.4rem;row-gap:4px} .plus{order:3} .row-meta{order:4}
   .row-more-pad{grid-template-columns:1fr;padding-left:0} .also{grid-template-columns:1fr}
   .row-meta{grid-column:2;text-align:left;display:flex;flex-wrap:wrap;gap:2px 10px}
@@ -376,11 +391,22 @@ html.js [data-split].in .ch{opacity:1;transform:none}
           <li data-rv><span class="when">2024 – 2027</span><b>Bachelor's in Computer Science, third year</b><span class="where">EPITECH Benin, Cotonou</span></li>
           <li data-rv><span class="when">Oct – Dec 2025</span><b>ICT &amp; IT Teacher</b><span class="where">Datus International School, Ghana</span></li>
           <li data-rv><span class="when">Feb – Aug 2024</span><b>Teaching Assistant</b><span class="where">GISAM College, Ashaiman, Ghana</span></li>
-          <li data-rv><span class="when">2024</span><b>Certificate: Introduction to Web Design with HTML &amp; CSS</b><span class="where">CHISQUARES</span></li>
           <li data-rv><span class="when">2022 – 2024</span><b>High School Diploma</b><span class="where">Common Wealth College La Paz, Accra, Ghana</span></li>
           <li data-rv><span class="when">Leadership</span><b>President of EPIMUSIK, a student music club of about 30 members</b><span class="where">EPITECH Benin</span></li>
           <li data-rv><span class="when">Languages</span><b>French, English, Spanish, Fon &amp; Twi</b><span class="where">Native French, professional English</span></li>
         </ul>
+      </div>
+      <div class="certs">
+        <h3 class="lab">Certificates</h3>
+        <button class="cert" id="cert-open" type="button" aria-haspopup="dialog" data-rv>
+          <img src="certificate-chisquares.jpg" width="1600" height="1131" loading="lazy" alt="Certificate of Attendance from CHISQUARES for Ahoussinou Pacôme, webinar Introduction to Web Design with HTML and CSS, November 12 to December 10, 2024">
+          <span class="cert-txt">
+            <span class="when">12 Nov – 10 Dec 2024</span>
+            <b>Introduction to Web Design with HTML and CSS</b>
+            <span class="cert-by">Certificate of Attendance · CHISQUARES</span>
+            <span class="repo">View the certificate<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg></span>
+          </span>
+        </button>
       </div>
     </div>
   </section>
@@ -476,6 +502,10 @@ html.js [data-split].in .ch{opacity:1;transform:none}
   </section>
 </main>
 
+<dialog class="dlg" id="cert-dlg" aria-label="Certificate of Attendance, CHISQUARES">
+  <form method="dialog"><button class="dlg-x" type="submit">Close ✕</button></form>
+  <img src="certificate-chisquares.jpg" width="1600" height="1131" alt="Certificate of Attendance from CHISQUARES for Ahoussinou Pacôme, webinar Introduction to Web Design with HTML and CSS, November 12 to December 10, 2024">
+</dialog>
 <div class="pv" aria-hidden="true"><div class="pv-in"><div class="pv-track"></div></div></div>
 
 <script>
@@ -531,7 +561,7 @@ const SITE = {
   education: [
     ['2024 – 2027', "Bachelor's in Computer Science, third year", 'EPITECH Benin, Cotonou'],
     ['2022 – 2024', 'High School Diploma', 'Common Wealth College La Paz, Accra'],
-    ['2024', 'Certificate: Intro to Web Design with HTML & CSS', 'CHISQUARES'],
+    ['Nov – Dec 2024', 'Certificate of Attendance: Intro to Web Design with HTML & CSS', 'CHISQUARES'],
   ],
   languages: 'French (native), English (professional), Spanish (elementary), Fon and Twi',
   interests: 'Software engineering, web development, cybersecurity, AI, Linux, automation',
@@ -727,6 +757,14 @@ send.addEventListener('click', () => {
   const pick = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); done(false); };
   try { navigator.clipboard.writeText(SITE.email).then(() => done(true), pick); } catch (e) { pick(); }
 });
+
+/* certificate viewer */
+(function cert() {
+  const d = $('#cert-dlg'), b = $('#cert-open');
+  if (!d || !b || !d.showModal) return;
+  b.addEventListener('click', () => d.showModal());
+  d.addEventListener('click', e => { if (e.target === d) d.close(); });
+})();
 
 /* terminal */
 (function terminal() {
