@@ -15,7 +15,7 @@
    Layout: full-bleed colour fields stacked like sheets of paper. Each field carries one
    oversized line of condensed type; everything around it stays small and quiet. */
 :root{
-  --ink:#0E0E13; --paper:#DADAE2; --white:#F7F7FA;
+  --ink:#0E0E13; --panel:#17171F; --paper:#DADAE2; --white:#F7F7FA;
   --cobalt:#2A3CFF; --sky:#8893FF; --mist:#CBD0FF; --tang:#FF5A1F;
   --f-display:'Anton','Haettenschweiler','Arial Narrow',Impact,sans-serif;
   --f-serif:'Instrument Serif','Iowan Old Style',Georgia,serif;
@@ -107,10 +107,17 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .about{background:var(--ink);color:var(--white);border-radius:var(--rad) var(--rad) 0 0;padding-block:clamp(56px,8vw,120px) clamp(64px,9vw,140px)}
 .about-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
 .about h2{font-size:clamp(5.5rem,24vw,22rem);overflow:hidden;padding-top:.06em}
-.about h2 .sl{color:var(--tang)}
+.about h2 .sl,.term-sec h2 .sl{color:var(--tang)}
 .about-top .lab{color:rgba(247,247,250,.55);padding-top:1.2em}
-.about-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:clamp(24px,5vw,80px);align-items:start;margin-top:clamp(28px,5vw,72px)}
-.arrow{width:clamp(72px,15vw,220px);color:rgba(247,247,250,.26);justify-self:end;transform:rotate(var(--rot,0deg))}
+.about-body{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,2fr);gap:clamp(24px,5vw,80px);align-items:start;margin-top:clamp(28px,5vw,72px)}
+.code,.term{background:var(--panel);border:1px solid rgba(247,247,250,.14);border-radius:14px;overflow:hidden;font-family:var(--f-mono);min-width:0}
+.code{font-size:clamp(.72rem,.92vw,.84rem);line-height:1.75}
+.code-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(247,247,250,.14);color:rgba(247,247,250,.6);font-size:.74rem;letter-spacing:.04em}
+.dots{display:flex;gap:6px} .dots i{width:9px;height:9px;border-radius:50%;background:rgba(247,247,250,.22)} .dots i:first-child{background:var(--tang)}
+.code pre{margin:0;padding:14px 16px 16px 0;overflow-x:auto;font:inherit;color:var(--white);counter-reset:ln}
+.code .l{display:block;white-space:pre;counter-increment:ln}
+.code .l::before{content:counter(ln);display:inline-block;width:2.6em;margin-right:1em;text-align:right;color:rgba(247,247,250,.28)}
+.code .k{color:var(--sky)} .code .s{color:var(--mist)} .code .n{color:var(--tang)}
 .about-p{font-size:clamp(1.3rem,2.55vw,2.4rem);line-height:1.22;letter-spacing:-.012em;max-width:26em}
 .about-p .w{opacity:.18;transition:opacity .35s ease}
 .about-p .w.lit{opacity:1}
@@ -145,7 +152,24 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .work-lab{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(40px,6vw,88px);padding-bottom:14px;opacity:.7}
 .row{border-top:1px solid color-mix(in srgb,currentColor 26%,transparent)}
 .row:last-child{border-bottom:1px solid color-mix(in srgb,currentColor 26%,transparent)}
-.row-in{transition:opacity .4s ease;display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto;align-items:center;column-gap:16px;padding-block:clamp(12px,1.6vw,24px)}
+.row-in{transition:opacity .4s ease;display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto 2.4rem;align-items:center;column-gap:16px;padding-block:clamp(12px,1.6vw,24px);width:100%;text-align:left}
+.plus{position:relative;justify-self:end;width:2.2rem;height:2.2rem;border:1.5px solid currentColor;border-radius:50%;transition:transform .5s var(--out),background-color .3s}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:.8rem;height:1.5px;margin:-.75px 0 0 -.4rem;background:currentColor}
+.plus::after{transform:rotate(90deg)}
+.row.open .plus{transform:rotate(45deg);background:var(--ink);color:var(--white)}
+.row-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--out)}
+.row.open .row-more{grid-template-rows:1fr}
+.row-more-in{min-height:0;overflow:hidden;visibility:hidden;transition:visibility 0s .55s}
+.row.open .row-more-in{visibility:visible;transition-delay:0s}
+.row-more-pad{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px clamp(24px,5vw,80px);padding:4px 0 clamp(22px,2.6vw,36px) calc(3.2rem + 16px)}
+.row-more p{font-size:clamp(1rem,1.35vw,1.2rem);line-height:1.5;max-width:36em}
+.row-side{display:grid;gap:14px;align-content:start;justify-items:start}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.03em;padding:5px 10px;border:1px solid color-mix(in srgb,currentColor 34%,transparent);border-radius:8px}
+.repo{display:inline-flex;gap:9px;align-items:center;font-weight:600;border-bottom:1.5px solid currentColor;padding-bottom:3px}
+.repo svg{width:11px;height:11px}
+.also{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 20px;align-items:baseline;margin-top:clamp(22px,3vw,36px)}
+.also .lab{opacity:.7}
 .row-name{font-size:clamp(2.5rem,7.6vw,7.6rem);overflow-wrap:anywhere;transition:transform .7s var(--out)}
 .row-meta{text-align:right;font-size:clamp(.85rem,1.1vw,1.05rem);font-weight:500;display:grid;gap:2px}
 .row-meta span:last-child{opacity:.6}
@@ -175,6 +199,25 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .pv.show .pv-in{transform:none;opacity:1}
 .pv-track{height:100%;transition:transform .5s var(--out)}
 .pv .cover{height:100%}
+
+/* terminal */
+.term-sec{background:var(--ink);color:var(--white);padding-block:clamp(56px,8vw,120px)}
+.term-sec h2{font-size:clamp(3.6rem,15vw,14rem);overflow:hidden;padding-top:.06em}
+.term-lede{margin-top:clamp(16px,2vw,28px);font-size:clamp(1.05rem,1.5vw,1.35rem);color:rgba(247,247,250,.8);max-width:34em}
+.term{margin-top:clamp(20px,3vw,40px);border-radius:16px;font-size:clamp(.78rem,1vw,.92rem);line-height:1.65;transition:border-color .3s}
+.term:focus-within{border-color:var(--sky)}
+.term-out{height:clamp(280px,46svh,440px);overflow-y:auto;overscroll-behavior:contain;padding:16px 18px 4px}
+.term-out>div{white-space:pre-wrap;overflow-wrap:anywhere}
+.term-out a{color:var(--mist);border-bottom:1px solid currentColor}
+.t-cmd{color:var(--white);margin-top:.7em} .t-cmd:first-child{margin-top:0}
+.pr{color:var(--sky);white-space:nowrap}
+.t-out{color:rgba(247,247,250,.82)} .t-hi{color:var(--mist)} .t-err{color:var(--tang)}
+.term-line{display:flex;align-items:center;gap:10px;padding:10px 18px 16px}
+.term-line input{flex:1;min-width:0;background:none;border:0;outline:0;padding:0;color:var(--white);font:inherit;font-size:max(16px,1em);caret-color:var(--tang)}
+.term-line input::placeholder{color:rgba(247,247,250,.35)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips button{font-family:var(--f-mono);font-size:.78rem;padding:9px 14px;border:1px solid rgba(247,247,250,.3);border-radius:9px;transition:background-color .25s,color .25s}
+.chips button:hover{background:var(--white);color:var(--ink)}
 
 /* process */
 .proc{background:var(--paper);height:330svh}
@@ -238,14 +281,19 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .sticky.drag{scale:1.08;box-shadow:0 30px 40px -18px rgba(14,14,19,.7)}
 .foot{position:relative;z-index:1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 28px;margin-top:clamp(20px,3vw,40px);font-size:.82rem}
 .foot ul{display:flex;flex-wrap:wrap;gap:8px 22px}
+.status{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(247,247,250,.3)}
+.status span{display:inline-flex;align-items:center;gap:7px;opacity:.85}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--mist)}
+.status a{margin-left:auto;border-bottom:1px solid currentColor}
 .foot a{display:inline-block;padding-block:6px;border-bottom:1px solid rgba(247,247,250,.5);transition:border-color .3s} .foot a:hover{border-color:currentColor}
 
 @media (max-width:760px){
-  .nav ul{display:none} .logo span{display:none} .nav ul+.hire{margin-left:auto}
+  .nav ul{display:none} .logo span{display:none} .pr b{display:none} .status a{margin-left:0} .nav ul+.hire{margin-left:auto}
   .scroll{display:none}
-  .about-body{grid-template-columns:1fr} .arrow{justify-self:start;width:64px}
+  .about-body{grid-template-columns:1fr} .code{order:2}
   .caps{grid-template-columns:1fr} .bg li{grid-template-columns:1fr} .where{text-align:left}
-  .row-in{grid-template-columns:2.2rem minmax(0,1fr);row-gap:4px}
+  .row-in{grid-template-columns:2.2rem minmax(0,1fr) 2.4rem;row-gap:4px} .plus{order:3} .row-meta{order:4}
+  .row-more-pad{grid-template-columns:1fr;padding-left:0} .also{grid-template-columns:1fr}
   .row-meta{grid-column:2;text-align:left;display:flex;flex-wrap:wrap;gap:2px 10px}
   .proc-card{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);height:min(84svh,720px)}
   .proc-l{grid-template-rows:auto auto auto auto}
@@ -277,6 +325,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#terminal">Terminal</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -307,10 +356,13 @@ html.js [data-split].in .ch{opacity:1;transform:none}
     <div class="wrap">
       <div class="about-top">
         <h2 class="big" data-split aria-label="About"><span class="sl">/</span>About</h2>
-        <span class="lab">02/05</span>
+        <span class="lab">02/06</span>
       </div>
       <div class="about-body">
-        <svg class="arrow" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="9" aria-hidden="true"><path d="M12 88 88 12M24 12h64v64"/></svg>
+        <div class="code" data-rv aria-label="Profile summary written as code">
+          <div class="code-bar"><span class="dots"><i></i><i></i><i></i></span><span>pacome.ts</span></div>
+          <pre><span class="l"><span class="k">const</span> pacome = {</span><span class="l">  role: <span class="s">"Software &amp; Web Developer"</span>,</span><span class="l">  school: <span class="s">"EPITECH Benin"</span>,</span><span class="l">  year: <span class="n">3</span>,</span><span class="l">  based: <span class="s">"Cotonou, Benin"</span>,</span><span class="l">  stack: [<span class="s">"C"</span>, <span class="s">"C++"</span>, <span class="s">"TypeScript"</span>,</span><span class="l">          <span class="s">"React"</span>, <span class="s">"Next.js"</span>, <span class="s">"Node.js"</span>],</span><span class="l">  interests: [<span class="s">"AI"</span>, <span class="s">"Cybersecurity"</span>,</span><span class="l">              <span class="s">"Linux"</span>, <span class="s">"Automation"</span>],</span><span class="l">  leads: <span class="s">"EPIMUSIK music club"</span>,</span><span class="l">};</span></pre>
+        </div>
         <p class="about-p" data-t="about"></p>
       </div>
       <div class="caps">
@@ -324,6 +376,8 @@ html.js [data-split].in .ch{opacity:1;transform:none}
           <li data-rv><span class="when">2024 – 2027</span><b>Bachelor's in Computer Science, third year</b><span class="where">EPITECH Benin, Cotonou</span></li>
           <li data-rv><span class="when">Oct – Dec 2025</span><b>ICT &amp; IT Teacher</b><span class="where">Datus International School, Ghana</span></li>
           <li data-rv><span class="when">Feb – Aug 2024</span><b>Teaching Assistant</b><span class="where">GISAM College, Ashaiman, Ghana</span></li>
+          <li data-rv><span class="when">2024</span><b>Certificate: Introduction to Web Design with HTML &amp; CSS</b><span class="where">CHISQUARES</span></li>
+          <li data-rv><span class="when">2022 – 2024</span><b>High School Diploma</b><span class="where">Common Wealth College La Paz, Accra, Ghana</span></li>
           <li data-rv><span class="when">Leadership</span><b>President of EPIMUSIK, a student music club of about 30 members</b><span class="where">EPITECH Benin</span></li>
           <li data-rv><span class="when">Languages</span><b>French, English, Spanish, Fon &amp; Twi</b><span class="where">Native French, professional English</span></li>
         </ul>
@@ -341,9 +395,29 @@ html.js [data-split].in .ch{opacity:1;transform:none}
         <p class="lede" data-rv>School projects, a hackathon and things I built for myself. They run from low-level C and C++ to full web platforms, and each one <em>taught me something</em> I use on the next.</p>
         <a class="circle" href="#contact">Get in<br>touch</a>
       </div>
-      <div class="work-lab lab"><span>Selected work</span><span>07 projects</span><span>03/05</span></div>
+      <div class="work-lab lab"><span>Selected work</span><span>07 projects · tap one to read more</span><span>03/06</span></div>
       <ul class="rows"></ul>
+      <div class="also" data-rv><span class="lab">Also built</span><ul class="tags" id="also"></ul></div>
       <p class="more"><a id="more" href="https://github.com/ahoussinoupacome123-lang" target="_blank" rel="noopener">See more on GitHub<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="term-sec" id="terminal">
+    <div class="wrap">
+      <div class="about-top">
+        <h2 class="big" data-split aria-label="Terminal"><span class="sl">/</span>Terminal</h2>
+        <span class="lab">04/06</span>
+      </div>
+      <p class="term-lede" data-rv>Prefer the command line? Type a command, or tap one of the shortcuts below.</p>
+      <div class="term" id="term">
+        <div class="code-bar"><span class="dots"><i></i><i></i><i></i></span><span>pacome@portfolio: ~</span></div>
+        <div class="term-out" id="term-out" role="log" aria-live="polite" aria-label="Terminal output" tabindex="0"></div>
+        <form class="term-line" id="term-form" autocomplete="off">
+          <label class="pr" for="term-in"><b>pacome@portfolio:</b>~$</label>
+          <input id="term-in" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="type help and press Enter">
+        </form>
+      </div>
+      <div class="chips" id="chips" aria-label="Command shortcuts"></div>
     </div>
   </section>
 
@@ -352,7 +426,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
       <div class="wrap">
         <div class="proc-card" data-step="0">
           <div class="proc-l">
-            <p class="lab"><span>How I work</span><span>04/05</span></p>
+            <p class="lab"><span>How I work</span><span>05/06</span></p>
             <ol class="proc-words big"><li class="on">Define</li><li>Design</li><li>Deliver</li></ol>
             <div class="proc-txt">
               <p class="on">We start with your goals, your audience and your limits. I ask a lot of questions, map the scope, and write down what success looks like before a single pixel moves.</p>
@@ -397,6 +471,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
         <ul id="socials"></ul>
         <a href="#top">Back to top ↑</a>
       </div>
+      <div class="status lab"><span><i></i>main</span><span>UTF-8</span><span>HTML · CSS · JS</span><span id="clock">Cotonou time</span><a href="https://github.com/ahoussinoupacome123-lang/portfolio" target="_blank" rel="noopener">View source ↗</a></div>
     </div>
   </section>
 </main>
@@ -415,16 +490,51 @@ const SITE = {
   photo: '',   // put a portrait URL (or data: URI) here to replace the animated artwork in the hero
   about: "I'm {first}, a third-year Computer Science student at EPITECH Benin, based in Cotonou. I build *web* *apps,* *low-level* *systems* and *AI* *tools,* from C and C++ to React and Next.js.",
   // cover = [background, text, accent] for the preview card; short = the word shown on it
-  // url = where the row links to ('' when there is no public link)
+  // desc + tags show when a row is opened; url = public link ('' when there is none)
   projects: [
-    { name: 'HemoLink',             short: 'HemoLink',  type: 'Web application',       stack: 'Next.js · TypeScript · Tailwind', cover: ['--white', '--ink', '--tang'],    url: 'https://github.com/ahoussinoupacome123-lang/HEMOLINK' },
-    { name: 'R-Type',               short: 'R-Type',    type: 'Multiplayer game',      stack: 'C++17 · UDP · ECS engine',        cover: ['--cobalt', '--white', '--sky'],  url: '' },
-    { name: 'Loopwell',             short: 'Loopwell',  type: 'Desktop audio app',     stack: 'JavaScript · HTML · CSS',         cover: ['--ink', '--mist', '--cobalt'],   url: '' },
-    { name: 'Raytracer',            short: 'Raytracer', type: '3D rendering engine',   stack: 'C · CSFML',                       cover: ['--mist', '--ink', '--cobalt'],   url: '' },
-    { name: 'Zappy',                short: 'Zappy',     type: 'Client/server game',    stack: 'C · C++ · Networking',            cover: ['--sky', '--ink', '--white'],     url: '' },
-    { name: 'Sensai Q&A',           short: 'Sensai',    type: 'AI document assistant', stack: 'Python',                          cover: ['--ink', '--white', '--sky'],     url: '' },
-    { name: 'AI Website Generator', short: 'AI Sites',  type: 'Hackathon project',     stack: 'Python · FastAPI · Docker',       cover: ['--cobalt', '--white', '--mist'], url: '' },
+    { name: 'HemoLink', short: 'HemoLink', type: 'Web application', stack: 'Next.js · TypeScript · Tailwind', cover: ['--white', '--ink', '--tang'], url: 'https://github.com/ahoussinoupacome123-lang/HEMOLINK',
+      desc: 'A landing page for blood donation in Benin. A first-time donor leaves knowing three things: whether they are eligible, where to go, and how a donation actually goes. I turned the design into a responsive Next.js front end with scroll animations and an interactive map.',
+      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Leaflet'] },
+    { name: 'R-Type', short: 'R-Type', type: 'Multiplayer game', stack: 'C++17 · UDP · ECS engine', cover: ['--cobalt', '--white', '--sky'], url: '',
+      desc: 'A networked multiplayer shoot-em-up built in a team for the EPITECH third-year project. Up to four players share a game simulated by an authoritative server at 60 Hz, over a custom binary UDP protocol, on an Entity-Component-System engine we wrote ourselves.',
+      tags: ['C++17', 'CMake', 'UDP networking', 'ECS', 'Linux & Windows'] },
+    { name: 'Loopwell', short: 'Loopwell', type: 'Desktop audio app', stack: 'JavaScript · HTML · CSS', cover: ['--ink', '--mist', '--cobalt'], url: '',
+      desc: 'A desktop app that plays any musical loop over and over with no gap at the join, with an audio editor built in. It has exact loop points, tempo detection, layers that start together on the beat, and a set of effects.',
+      tags: ['JavaScript', 'Web Audio', 'HTML', 'CSS'] },
+    { name: 'Raytracer', short: 'Raytracer', type: '3D rendering engine', stack: 'C · CSFML', cover: ['--mist', '--ink', '--cobalt'], url: '',
+      desc: 'A ray-tracing engine that renders 3D scenes. It computes ray and object intersections, lighting and the camera, one pixel at a time.',
+      tags: ['C', 'CSFML', 'Linear algebra'] },
+    { name: 'Zappy', short: 'Zappy', type: 'Client/server game', stack: 'C · C++ · Networking', cover: ['--sky', '--ink', '--white'], url: '',
+      desc: 'A multiplayer client/server game. I worked on the client and server components, the network communication between them and the concurrent processes, in a Git-based team.',
+      tags: ['C', 'C++', 'Sockets', 'Concurrency', 'Git'] },
+    { name: 'Sensai Q&A', short: 'Sensai', type: 'AI document assistant', stack: 'Python', cover: ['--ink', '--white', '--sky'], url: '',
+      desc: 'A local assistant that answers a list of questions about a PDF and writes a sourced answer file. Every answer comes with the page it is from and a word-for-word quote, and everything runs on your own computer.',
+      tags: ['Python', 'Retrieval', 'Local models', 'JavaScript'] },
+    { name: 'AI Website Generator', short: 'AI Sites', type: 'Hackathon project', stack: 'Python · FastAPI · Docker', cover: ['--cobalt', '--white', '--mist'], url: '',
+      desc: 'A hackathon platform that generates showcase websites from structured input. The backend is FastAPI with Pydantic, pages are rendered with Jinja2, data sits in SQLite, and the whole thing ships in Docker.',
+      tags: ['Python', 'FastAPI', 'Jinja2', 'SQLite', 'Docker'] },
   ],
+  also: ['My_Radar', 'My_TOP', 'My_LS', 'EPYTODO', 'My_Torch', 'AI Newsletter Aggregator', 'Personal Canteen Web App'],
+  // used by the terminal section
+  skills: {
+    Languages: 'C, C++, JavaScript, TypeScript, HTML, CSS',
+    Web: 'React, Next.js, Node.js, REST APIs, Tailwind CSS',
+    Databases: 'PostgreSQL, MySQL, SQLite',
+    Systems: 'Linux/Ubuntu, Docker, GNU Make, Valgrind',
+    Tools: 'Git, GitHub, VS Code, n8n, CSFML',
+  },
+  experience: [
+    ['Oct – Dec 2025', 'ICT & IT Teacher', 'Datus International School, Ghana'],
+    ['Feb – Aug 2024', 'Teaching Assistant', 'GISAM College, Ashaiman, Ghana'],
+    ['Leadership', 'President of EPIMUSIK (about 30 members)', 'EPITECH Benin'],
+  ],
+  education: [
+    ['2024 – 2027', "Bachelor's in Computer Science, third year", 'EPITECH Benin, Cotonou'],
+    ['2022 – 2024', 'High School Diploma', 'Common Wealth College La Paz, Accra'],
+    ['2024', 'Certificate: Intro to Web Design with HTML & CSS', 'CHISQUARES'],
+  ],
+  languages: 'French (native), English (professional), Spanish (elementary), Fon and Twi',
+  interests: 'Software engineering, web development, cybersecurity, AI, Linux, automation',
   socials: [
     { label: 'GitHub',   url: 'https://github.com/ahoussinoupacome123-lang' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahoussinou-pacome-182313333' },
@@ -457,10 +567,18 @@ $('#hero-links').innerHTML = SITE.socials.map(s => linkHTML(s)).join('');
 $('#links').innerHTML = SITE.socials.map(s => linkHTML(s, true)).join('');
 
 const coverHTML = (p, i) => `<div class="cover k${i % 4}" style="--cb:var(${p.cover[0]});--cf:var(${p.cover[1]});--ca:var(${p.cover[2]})"><small>${esc(p.type)}</small><i></i><b style="font-size:${Math.min(30, 184 / (p.short || p.name).length).toFixed(1)}cqw">${esc(p.short || p.name.split(' ')[0])}</b></div>`;
-$('.rows').innerHTML = SITE.projects.map((p, i) => {
-  const tag = p.url ? `a href="${esc(p.url)}" target="_blank" rel="noopener"` : 'div';
-  return `<li class="row" data-i="${i}" data-rv><${tag} class="row-in">${coverHTML(p, i)}<span class="lab">${String(i + 1).padStart(2, '0')}</span><h3 class="row-name big">${esc(p.name)}</h3><span class="row-meta"><span>${esc(p.type)}</span><span>${esc(p.stack)}</span></span></${p.url ? 'a' : 'div'}></li>`;
-}).join('');
+const arrowSVG = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg>';
+$('.rows').innerHTML = SITE.projects.map((p, i) => `<li class="row${i ? '' : ' open'}" data-i="${i}" data-rv>
+  <button class="row-in" type="button" aria-expanded="${!i}" aria-controls="pm${i}">${coverHTML(p, i)}<span class="lab">${String(i + 1).padStart(2, '0')}</span><span class="row-name big">${esc(p.name)}</span><span class="row-meta"><span>${esc(p.type)}</span><span>${esc(p.stack)}</span></span><span class="plus" aria-hidden="true"></span></button>
+  <div class="row-more" id="pm${i}"><div class="row-more-in"><div class="row-more-pad"><p>${esc(p.desc)}</p><div class="row-side"><ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>${p.url ? `<a class="repo" href="${esc(p.url)}" target="_blank" rel="noopener">View the code on GitHub${arrowSVG}</a>` : ''}</div></div></div></div>
+</li>`).join('');
+$('#also').innerHTML = SITE.also.map(t => `<li>${esc(t)}</li>`).join('');
+$('.rows').addEventListener('click', e => {
+  const b = e.target.closest('.row-in'); if (!b) return;
+  const row = b.parentElement, open = !row.classList.contains('open');
+  $$('.row.open').forEach(r => { r.classList.remove('open'); $('.row-in', r).setAttribute('aria-expanded', 'false'); });
+  if (open) { row.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
+});
 $('.pv-track').innerHTML = SITE.projects.map(coverHTML).join('');
 
 /* split big headings into characters */
@@ -571,8 +689,8 @@ const rows = $('.rows'), pv = $('.pv'), pvTrack = $('.pv-track');
 const pvp = { x: ptr.x, y: ptr.y };
 if (fine) {
   rows.addEventListener('pointerover', e => {
-    const row = e.target.closest('.row'); if (!row) return;
-    pvTrack.style.transform = `translateY(${-100 * row.dataset.i}%)`;
+    const head = e.target.closest('.row-in'); if (!head) { pv.classList.remove('show'); return; }
+    pvTrack.style.transform = `translateY(${-100 * head.parentElement.dataset.i}%)`;
     pv.classList.add('show');
   });
   rows.addEventListener('pointerleave', () => pv.classList.remove('show'));
@@ -609,6 +727,69 @@ send.addEventListener('click', () => {
   const pick = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); done(false); };
   try { navigator.clipboard.writeText(SITE.email).then(() => done(true), pick); } catch (e) { pick(); }
 });
+
+/* terminal */
+(function terminal() {
+  const out = $('#term-out'), form = $('#term-form'), inp = $('#term-in');
+  const PROMPT = '<span class="pr">~$</span> ';
+  const PAD = innerWidth < 560 ? 12 : 16;
+  const link = (label, url) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`;
+  const table = rows => rows.map(r => `<span class="t-hi">${esc(r[0].padEnd(PAD))}</span>${esc(r[1])}${r[2] ? '  ·  ' + esc(r[2]) : ''}`);
+  const projectLine = (p, i) => `<span class="t-hi">${i + 1}.</span> ${esc(p.name.padEnd(22))}${esc(p.type)}`;
+  const files = { 'about.txt': 'whoami', 'skills.json': 'skills', 'projects.md': 'projects', 'contact.md': 'contact' };
+  const C = {
+    help: () => table([['help', 'show this list'], ['whoami', 'who I am, in two lines'], ['skills', 'languages, frameworks and tools'], ['projects', 'what I have built'], ['open <n>', 'details of project number n'], ['experience', 'work and leadership'], ['education', 'school and certificates'], ['languages', 'what I speak'], ['interests', 'what I like to dig into'], ['contact', 'email, GitHub and LinkedIn'], ['ls, cat <f>', 'look around'], ['clear', 'clear the screen']]),
+    whoami: () => [`<span class="t-hi">${esc(full)}</span>, ${esc(SITE.role[1])}`, 'Third-year Computer Science student at EPITECH Benin, based in Cotonou.'],
+    skills: () => table(Object.entries(SITE.skills)),
+    projects: () => [...SITE.projects.map(projectLine), '', 'Type <span class="t-hi">open 1</span> to read about one of them.'],
+    open: arg => {
+      const n = parseInt(arg, 10), p = SITE.projects[n - 1] || SITE.projects.find(x => arg && x.name.toLowerCase().startsWith(arg.toLowerCase()));
+      if (!p) return [`<span class="t-err">open: no project "${esc(arg || '')}". Try a number from 1 to ${SITE.projects.length}.</span>`];
+      return [`<span class="t-hi">${esc(p.name)}</span>  ·  ${esc(p.type)}`, esc(p.desc), 'Stack: ' + esc(p.tags.join(', ')), p.url ? 'Code: ' + link(p.url.replace('https://', ''), p.url) : 'Code: private repository, ask me for a walkthrough.'];
+    },
+    experience: () => table(SITE.experience),
+    education: () => table(SITE.education),
+    languages: () => [esc(SITE.languages)],
+    interests: () => [esc(SITE.interests)],
+    contact: () => [`<span class="t-hi">${'email'.padEnd(PAD)}</span>${esc(SITE.email)}`, ...SITE.socials.map(x => `<span class="t-hi">${esc(x.label.toLowerCase().padEnd(PAD))}</span>${link(x.url.replace('https://', '').replace('www.', ''), x.url)}`)],
+    github: () => [link(SITE.socials[0].url.replace('https://', ''), SITE.socials[0].url)],
+    linkedin: () => { const l = SITE.socials.find(x => x.label === 'LinkedIn'); return l ? [link(l.url.replace('https://www.', ''), l.url)] : ['No LinkedIn link set.']; },
+    ls: () => [esc(Object.keys(files).join('   '))],
+    cat: arg => files[arg] ? C[files[arg]]() : [`<span class="t-err">cat: ${esc(arg || '')}: No such file. Try ls.</span>`],
+    pwd: () => ['/home/pacome/portfolio'],
+    date: () => [esc(new Date().toString())],
+    echo: arg => [esc(arg || '')],
+    sudo: () => ['<span class="t-err">Permission denied. Nice try.</span>'],
+  };
+  const print = (html, cls) => { const d = el('div', cls || 't-out', html || '&nbsp;'); out.append(d); };
+  const run = raw => {
+    const cmd = raw.trim(); if (!cmd) return;
+    print(PROMPT + esc(cmd), 't-cmd');
+    const [name, ...rest] = cmd.split(/\s+/), key = name.toLowerCase();
+    if (key === 'clear') { out.innerHTML = ''; return; }
+    const lines = Object.prototype.hasOwnProperty.call(C, key) ? C[key](rest.join(' ')) : [`<span class="t-err">command not found: ${esc(name)}</span>. Type <span class="t-hi">help</span> to see what works.`];
+    lines.forEach(l => print(l));
+    out.scrollTop = out.scrollHeight;
+  };
+  const hist = []; let hi = 0;
+  form.addEventListener('submit', e => { e.preventDefault(); const v = inp.value; if (v.trim()) { hist.push(v); hi = hist.length; } run(v); inp.value = ''; });
+  inp.addEventListener('keydown', e => {
+    if (e.key === 'ArrowUp' && hist.length) { e.preventDefault(); hi = Math.max(0, hi - 1); inp.value = hist[hi]; }
+    else if (e.key === 'ArrowDown' && hist.length) { e.preventDefault(); hi = Math.min(hist.length, hi + 1); inp.value = hist[hi] || ''; }
+    else if (e.key === 'Tab' && inp.value.trim()) { const m = Object.keys(C).concat('clear').filter(k => k.startsWith(inp.value.trim().toLowerCase())); if (m.length === 1) { e.preventDefault(); inp.value = m[0] + ' '; } }
+  });
+  out.addEventListener('click', e => { if (!e.target.closest('a') && !String(getSelection()).length) inp.focus({ preventScroll: true }); });
+  $('#chips').innerHTML = ['help', 'whoami', 'skills', 'projects', 'open 1', 'experience', 'education', 'contact', 'clear'].map(c => `<button type="button" data-c="${c}">${c}</button>`).join('');
+  $('#chips').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; run(b.dataset.c); if (fine) inp.focus({ preventScroll: true }); });
+  run('whoami'); run('help'); out.scrollTop = 0;
+})();
+
+/* Cotonou clock in the footer */
+(function clock() {
+  const n = $('#clock');
+  const show = () => { try { n.textContent = 'Cotonou ' + new Intl.DateTimeFormat('en-GB', { timeZone: 'Africa/Porto-Novo', hour: '2-digit', minute: '2-digit' }).format(new Date()) + ' WAT'; } catch (e) { n.textContent = 'Cotonou, UTC+1'; } };
+  show(); setInterval(show, 30000);
+})();
 
 /* one loop for everything that moves */
 const prog = $('.prog'), aboutP = $('.about-p'), wordsP = $$('.w', aboutP), links = $$('.nav li a'), secs = links.map(a => $(a.getAttribute('href')));
