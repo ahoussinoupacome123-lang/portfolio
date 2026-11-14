@@ -232,13 +232,13 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .links a:hover{background:var(--white);color:var(--cobalt);border-color:var(--white)}
 .links svg{width:10px;height:10px}
 .foot-name-wrap{position:relative;margin-top:clamp(48px,7vw,110px);padding-top:clamp(70px,9vw,120px);border-top:1px solid rgba(247,247,250,.4)}
-.foot-name{display:inline-block;white-space:nowrap;font-size:12.2vw;line-height:.86;padding-top:.1em}
+.foot-name{display:inline-block;white-space:nowrap;pointer-events:none;font-size:12.2vw;line-height:.86;padding-top:.1em}
 .hint{position:absolute;right:0;top:-30px;opacity:.75}
 .sticky{position:absolute;left:var(--l);top:var(--t);--s:clamp(86px,11vw,150px);width:var(--s);height:var(--s);display:grid;place-items:center;text-align:center;padding:calc(var(--s) * .1);background:var(--c);color:var(--ink);border-radius:3px;font:italic 400 clamp(1.05rem,1.9vw,1.7rem)/1.02 var(--f-serif);rotate:var(--r);box-shadow:0 14px 22px -12px rgba(14,14,19,.6);touch-action:none;user-select:none;-webkit-user-select:none;transition:scale .3s var(--out),box-shadow .3s}
 .sticky.drag{scale:1.08;box-shadow:0 30px 40px -18px rgba(14,14,19,.7)}
-.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 28px;margin-top:clamp(20px,3vw,40px);font-size:.82rem}
+.foot{position:relative;z-index:1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 28px;margin-top:clamp(20px,3vw,40px);font-size:.82rem}
 .foot ul{display:flex;flex-wrap:wrap;gap:8px 22px}
-.foot a{border-bottom:1px solid transparent;transition:border-color .3s} .foot a:hover{border-color:currentColor}
+.foot a{display:inline-block;padding-block:6px;border-bottom:1px solid rgba(247,247,250,.5);transition:border-color .3s} .foot a:hover{border-color:currentColor}
 
 @media (max-width:760px){
   .nav ul{display:none} .logo span{display:none} .nav ul+.hire{margin-left:auto}
