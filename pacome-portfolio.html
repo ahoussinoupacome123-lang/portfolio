@@ -98,7 +98,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .about{background:var(--ink);color:var(--white);border-radius:var(--rad) var(--rad) 0 0;padding-block:clamp(56px,8vw,120px) clamp(64px,9vw,140px)}
 .about-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
 .about h2{font-size:clamp(5.5rem,24vw,22rem);overflow:hidden;padding-top:.06em}
-.about h2 .sl,.term-sec h2 .sl{color:var(--tang)}
+.about h2 .sl,.term-sec h2 .sl,.work h2 .sl{color:var(--tang)}
 .about-top .lab{color:rgba(247,247,250,.55);padding-top:1.2em}
 .about-body{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,2fr);gap:clamp(24px,5vw,80px);align-items:start;margin-top:clamp(28px,5vw,72px)}
 .code,.term{background:var(--panel);border:1px solid rgba(247,247,250,.14);border-radius:14px;overflow:hidden;font-family:var(--f-mono);min-width:0}
@@ -151,7 +151,9 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 
 /* work */
 .work{position:relative;isolation:isolate;overflow:hidden;background:var(--paper);color:var(--ink);padding-block:clamp(56px,8vw,120px) clamp(48px,6vw,90px)}
-.work-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.work-h{font-size:clamp(3.6rem,15vw,14rem);overflow:hidden;padding-top:.06em}
+.work .about-top .lab{color:inherit;opacity:.6}
+.work-top{margin-top:clamp(14px,2vw,26px);display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
 .lede{font-size:clamp(1.25rem,2.3vw,2.1rem);line-height:1.22;letter-spacing:-.012em;max-width:24em;min-width:0}
 .lede em{font-family:var(--f-serif);font-size:1.1em}
 .circle{flex:none;display:grid;place-items:center;text-align:center;width:clamp(96px,11vw,150px);aspect-ratio:1;border:1.5px solid currentColor;border-radius:50%;font-size:clamp(.7rem,.95vw,.9rem);font-weight:600;letter-spacing:.08em;line-height:1.25;text-transform:uppercase;transition:background-color .4s,color .4s,transform .5s var(--out)}
@@ -159,6 +161,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .work-lab{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(40px,6vw,88px);padding-bottom:14px;opacity:.7}
 .row{border-top:1px solid color-mix(in srgb,currentColor 26%,transparent)}
 .row:last-child{border-bottom:1px solid color-mix(in srgb,currentColor 26%,transparent)}
+.row-h{font:inherit;font-weight:inherit}
 .row-in{transition:opacity .4s ease;display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto 2.4rem;align-items:center;column-gap:16px;padding-block:clamp(12px,1.6vw,24px);width:100%;text-align:left}
 .plus{position:relative;justify-self:end;width:2.2rem;height:2.2rem;border:1.5px solid currentColor;border-radius:50%;transition:transform .5s var(--out),background-color .3s}
 .plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:.8rem;height:1.5px;margin:-.75px 0 0 -.4rem;background:currentColor}
@@ -231,7 +234,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .proc-pin{position:sticky;top:0;height:100svh;display:grid;align-items:center;padding-top:60px}
 .proc-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);height:min(78svh,660px);background:var(--ink);color:var(--white);border-radius:var(--rad);overflow:hidden}
 .proc-l{display:grid;grid-template-rows:auto 1fr auto auto;gap:clamp(10px,2vh,22px);padding:clamp(18px,3vw,44px);min-width:0}
-.proc-l>.lab{display:flex;justify-content:space-between;color:rgba(247,247,250,.55)}
+.proc-l>.lab{display:flex;justify-content:space-between;font-weight:400;color:rgba(247,247,250,.55)}
 .proc-words{align-self:center}
 .proc-words li{font-size:clamp(3.2rem,min(8.6vw,13svh),8.4rem);color:rgba(247,247,250,.2);transition:color .5s ease,transform .7s var(--out);transform-origin:0 50%}
 .proc-words li.on{color:var(--white);transform:translateX(.08em)}
@@ -401,11 +404,15 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 
   <section class="work" id="work">
     <div class="wrap">
+      <div class="about-top">
+        <h2 class="big work-h" data-split aria-label="Work"><span class="sl">/</span>Work</h2>
+        <span class="lab">03/06</span>
+      </div>
       <div class="work-top">
         <p class="lede" data-rv>School projects, a hackathon and things I built for myself. They run from low-level C and C++ to full web platforms, and each one <em>taught me something</em> I use on the next.</p>
         <a class="circle" href="#contact">Get in<br>touch</a>
       </div>
-      <div class="work-lab lab"><span>Selected work</span><span>07 projects · tap one to read more</span><span>03/06</span></div>
+      <div class="work-lab lab"><span>Selected work</span><span>07 projects · tap one to read more</span></div>
       <ul class="rows"></ul>
       <div class="also" data-rv><span class="lab">Also built</span><ul class="tags" id="also"></ul></div>
       <p class="more"><a id="more" href="https://github.com/ahoussinoupacome123-lang" target="_blank" rel="noopener">See more on GitHub<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg></a></p>
@@ -436,7 +443,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
       <div class="wrap">
         <div class="proc-card" data-step="0">
           <div class="proc-l">
-            <p class="lab"><span>How I work</span><span>05/06</span></p>
+            <h2 class="lab"><span>How I work</span><span>05/06</span></h2>
             <ol class="proc-words big"><li class="on">Define</li><li>Design</li><li>Deliver</li></ol>
             <div class="proc-txt">
               <p class="on">We start with your goals, your audience and your limits. I ask a lot of questions, map the scope, and write down what success looks like before a single pixel moves.</p>
@@ -488,7 +495,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 
 <dialog class="dlg" id="cert-dlg" aria-label="Certificate">
   <form method="dialog"><button class="dlg-x" type="submit">Close ✕</button></form>
-  <img id="cert-big" width="1600" height="1131" alt="">
+  <img id="cert-big" width="1600" height="1131" alt="Certificate, shown full size">
 </dialog>
 <div class="pv" aria-hidden="true"><div class="pv-in"><div class="pv-track"></div></div></div>
 
@@ -587,13 +594,13 @@ $('#links').innerHTML = SITE.socials.map(s => linkHTML(s, true)).join('');
 const coverHTML = (p, i) => `<div class="cover k${i % 4}" style="--cb:var(${p.cover[0]});--cf:var(${p.cover[1]});--ca:var(${p.cover[2]})"><small>${esc(p.type)}</small><i></i><b style="font-size:${Math.min(30, 184 / (p.short || p.name).length).toFixed(1)}cqw">${esc(p.short || p.name.split(' ')[0])}</b></div>`;
 const arrowSVG = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg>';
 $('.rows').innerHTML = SITE.projects.map((p, i) => `<li class="row${i ? '' : ' open'}" data-i="${i}" data-rv>
-  <button class="row-in" type="button" aria-expanded="${!i}" aria-controls="pm${i}">${coverHTML(p, i)}<span class="lab">${String(i + 1).padStart(2, '0')}</span><span class="row-name big">${esc(p.name)}</span><span class="row-meta"><span>${esc(p.type)}</span><span>${esc(p.stack)}</span></span><span class="plus" aria-hidden="true"></span></button>
+  <h3 class="row-h"><button class="row-in" type="button" aria-expanded="${!i}" aria-controls="pm${i}" aria-label="${esc(p.name)}, ${esc(p.type)}">${coverHTML(p, i)}<span class="lab">${String(i + 1).padStart(2, '0')}</span><span class="row-name big">${esc(p.name)}</span><span class="row-meta"><span>${esc(p.type)}</span><span>${esc(p.stack)}</span></span><span class="plus" aria-hidden="true"></span></button></h3>
   <div class="row-more" id="pm${i}"><div class="row-more-in"><div class="row-more-pad"><p>${esc(p.desc)}</p><div class="row-side"><ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join('')}</ul>${p.url ? `<a class="repo" href="${esc(p.url)}" target="_blank" rel="noopener">View the code on GitHub${arrowSVG}</a>` : ''}</div></div></div></div>
 </li>`).join('');
 $('#also').innerHTML = SITE.also.map(t => `<li>${esc(t)}</li>`).join('');
 $('.rows').addEventListener('click', e => {
   const b = e.target.closest('.row-in'); if (!b) return;
-  const row = b.parentElement, open = !row.classList.contains('open');
+  const row = b.closest('.row'), open = !row.classList.contains('open');
   $$('.row.open').forEach(r => { r.classList.remove('open'); $('.row-in', r).setAttribute('aria-expanded', 'false'); });
   if (open) { row.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
 });
@@ -708,7 +715,7 @@ const pvp = { x: ptr.x, y: ptr.y };
 if (fine) {
   rows.addEventListener('pointerover', e => {
     const head = e.target.closest('.row-in'); if (!head) { pv.classList.remove('show'); return; }
-    pvTrack.style.transform = `translateY(${-100 * head.parentElement.dataset.i}%)`;
+    pvTrack.style.transform = `translateY(${-100 * head.closest('.row').dataset.i}%)`;
     pv.classList.add('show');
   });
   rows.addEventListener('pointerleave', () => pv.classList.remove('show'));
