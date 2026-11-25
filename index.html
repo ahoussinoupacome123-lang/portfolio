@@ -141,7 +141,7 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .about-p .w.lit{opacity:1}
 .about-p .w.hl{font-family:var(--f-serif);font-style:italic;font-size:1.1em}
 .about-p .w.hl.lit{color:var(--mist)}
-.caps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(40px,6vw,88px)}
+.caps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(40px,6vw,88px)}
 .caps>div{border-top:1px solid rgba(247,247,250,.22);padding-top:16px;display:grid;gap:12px;align-content:start}
 .caps .lab{color:var(--c)}
 .caps li{font-size:clamp(1rem,1.4vw,1.25rem);line-height:1.55}
@@ -151,6 +151,8 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .bg li{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1.5fr) minmax(0,1fr);gap:6px 24px;align-items:baseline;padding-block:16px;border-top:1px solid rgba(247,247,250,.22)}
 .bg li:last-child{border-bottom:1px solid rgba(247,247,250,.22)}
 .when{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mist)}
+.mid{display:grid;gap:5px;min-width:0}
+.what{color:rgba(247,247,250,.62);font-size:clamp(.88rem,1.05vw,.98rem);line-height:1.45;max-width:48em}
 .bg b{font-weight:500;font-size:clamp(1.05rem,1.6vw,1.4rem);line-height:1.25}
 .where{color:rgba(247,247,250,.7);text-align:right}
 
@@ -324,6 +326,9 @@ html.js [data-split].in .ch{opacity:1;transform:none}
 .status a{margin-left:auto;border-bottom:1px solid currentColor}
 .foot a{display:inline-block;padding-block:6px;border-bottom:1px solid rgba(247,247,250,.5);transition:border-color .3s} .foot a:hover{border-color:currentColor}
 
+@media (max-width:1040px){
+  .caps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:760px){
   .nav ul{display:none} .logo span{display:none} .pr b{display:none} .status a{margin-left:0} .nav ul+.hire{margin-left:auto}
   .scroll{display:none}
@@ -405,17 +410,18 @@ html.js [data-split].in .ch{opacity:1;transform:none}
       <div class="caps">
         <div data-rv style="--c:var(--mist)"><h3 class="lab">Languages</h3><ul><li>C &amp; C++</li><li>JavaScript &amp; TypeScript</li><li>HTML &amp; CSS</li></ul></div>
         <div data-rv style="--c:var(--mist)"><h3 class="lab">Web &amp; data</h3><ul><li>React, Next.js &amp; Tailwind CSS</li><li>Node.js &amp; REST APIs</li><li>PostgreSQL, MySQL &amp; SQLite</li></ul></div>
-        <div data-rv style="--c:var(--mist)"><h3 class="lab">Systems &amp; tools</h3><ul><li>Linux &amp; Docker</li><li>Networking &amp; automation with n8n</li><li>Git, GNU Make &amp; Valgrind</li></ul></div>
+        <div data-rv style="--c:var(--mist)"><h3 class="lab">Systems &amp; tools</h3><ul><li>Linux &amp; Docker</li><li>Git, GNU Make &amp; Valgrind</li><li>Automation with n8n</li></ul></div>
+        <div data-rv style="--c:var(--mist)"><h3 class="lab">Core</h3><ul><li>Algorithms &amp; data structures</li><li>Object-oriented programming</li><li>Networking &amp; concurrency</li></ul></div>
       </div>
       <div class="bg">
         <h3 class="lab">Background</h3>
         <ul>
-          <li data-rv><span class="when">2024 – 2027</span><b>Bachelor's in Computer Science, third year</b><span class="where">EPITECH Benin, Cotonou</span></li>
-          <li data-rv><span class="when">Oct – Dec 2025</span><b>ICT &amp; IT Teacher</b><span class="where">Datus International School, Ghana</span></li>
-          <li data-rv><span class="when">Feb – Aug 2024</span><b>Teaching Assistant</b><span class="where">GISAM College, Ashaiman, Ghana</span></li>
-          <li data-rv><span class="when">2022 – 2024</span><b>High School Diploma</b><span class="where">Common Wealth College La Paz, Accra, Ghana</span></li>
-          <li data-rv><span class="when">Leadership</span><b>President of EPIMUSIK, a student music club of about 30 members</b><span class="where">EPITECH Benin</span></li>
-          <li data-rv><span class="when">Languages</span><b>French, English, Spanish, Fon &amp; Twi</b><span class="where">Native French, professional English</span></li>
+          <li data-rv><span class="when">2024 – 2027</span><span class="mid"><b>Bachelor's in Computer Science, third year</b><span class="what">Software engineering, algorithms and data structures, C and C++, systems programming, web development, databases and networking.</span></span><span class="where">EPITECH Benin, Cotonou</span></li>
+          <li data-rv><span class="when">Oct – Dec 2025</span><span class="mid"><b>ICT &amp; IT Teacher</b><span class="what">Taught ICT and IT to senior high school students, prepared the course material and mentored students through practical work.</span></span><span class="where">Datus International School, Ghana</span></li>
+          <li data-rv><span class="when">Feb – Aug 2024</span><span class="mid"><b>Teaching Assistant</b><span class="what">Helped plan lessons and build course materials, prepared examinations, and recorded and organised the results.</span></span><span class="where">GISAM College, Ashaiman, Ghana</span></li>
+          <li data-rv><span class="when">2022 – 2024</span><span class="mid"><b>High School Diploma</b></span><span class="where">Common Wealth College La Paz, Accra, Ghana</span></li>
+          <li data-rv><span class="when">Leadership</span><span class="mid"><b>President of EPIMUSIK</b><span class="what">I lead a student music club of about 30 members, organising the meetings and the work we do together.</span></span><span class="where">EPITECH Benin</span></li>
+          <li data-rv><span class="when">Languages</span><span class="mid"><b>French, English, Spanish, Fon &amp; Twi</b></span><span class="where">Native French, professional English</span></li>
         </ul>
       </div>
       <div class="certs">
@@ -536,7 +542,7 @@ const SITE = {
   email: 'ahoussinoupacome123@gmail.com',
   github: 'https://github.com/ahoussinoupacome123-lang',
   photo: '',   // put a portrait URL (or data: URI) here to replace the animated artwork in the hero
-  about: "I'm {first}, a third-year Computer Science student at EPITECH Benin, based in Cotonou. I build *web* *apps,* *low-level* *systems* and *AI* *tools,* from C and C++ to React and Next.js.",
+  about: "I'm {first}, a third-year Computer Science student at EPITECH Benin, in Cotonou. I build *web* *apps* in React and Next.js, *systems* in C and C++, and *AI* *tools* in Python. Most of it shipped in *teams,* on a deadline, with Git. I've also taught ICT to high-school students, so I can explain the work to people who don't write code.",
   // cover = [background, text, accent] for the preview card; short = the word shown on it
   // desc + tags show when a row is opened; url = public link ('' when there is none)
   projects: [
@@ -587,6 +593,7 @@ const SITE = {
   ],
   languages: 'French (native), English (professional), Spanish (elementary), Fon and Twi',
   interests: 'Software engineering, web development, cybersecurity, AI, Linux, automation',
+  cv: { label: 'CV (PDF)', url: 'pacome-ahoussinou-cv.pdf' },
   socials: [
     { label: 'GitHub',   url: 'https://github.com/ahoussinoupacome123-lang' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahoussinou-pacome-182313333' },
@@ -614,9 +621,10 @@ $('.about-p').innerHTML = SITE.about.replace('{first}', SITE.first).split(/\s+/)
 }).join(' ');
 if (SITE.github) $('#more').href = SITE.github;
 const linkHTML = (s, arrow) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}${arrow ? '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg>' : ''}</a>`;
-$('#socials').innerHTML = SITE.socials.map(s => `<li>${linkHTML(s)}</li>`).join('');
-$('#hero-links').innerHTML = SITE.socials.map(s => linkHTML(s)).join('');
-$('#links').innerHTML = SITE.socials.map(s => linkHTML(s, true)).join('');
+const reach = SITE.cv ? SITE.socials.concat(SITE.cv) : SITE.socials;
+$('#socials').innerHTML = reach.map(s => `<li>${linkHTML(s)}</li>`).join('');
+$('#hero-links').innerHTML = reach.map(s => linkHTML(s)).join('');
+$('#links').innerHTML = reach.map(s => linkHTML(s, true)).join('');
 
 const coverHTML = (p, i) => `<div class="cover k${i % 4}" style="--cb:var(${p.cover[0]});--cf:var(${p.cover[1]});--ca:var(${p.cover[2]})"><small>${esc(p.type)}</small><i></i><b style="font-size:${Math.min(30, 184 / (p.short || p.name).length).toFixed(1)}cqw">${esc(p.short || p.name.split(' ')[0])}</b></div>`;
 const arrowSVG = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M1 11 11 1M3 1h8v8"/></svg>';
@@ -807,7 +815,7 @@ send.addEventListener('click', () => {
   const projectLine = (p, i) => `<span class="t-hi">${i + 1}.</span> ${esc(p.name.padEnd(22))}${esc(p.type)}`;
   const files = { 'about.txt': 'whoami', 'skills.json': 'skills', 'projects.md': 'projects', 'contact.md': 'contact' };
   const C = {
-    help: () => table([['help', 'show this list'], ['whoami', 'who I am, in two lines'], ['skills', 'languages, frameworks and tools'], ['projects', 'what I have built'], ['open <n>', 'details of project number n'], ['experience', 'work and leadership'], ['education', 'where I studied'], ['certificates', 'courses I completed'], ['languages', 'what I speak'], ['interests', 'what I like to dig into'], ['contact', 'email, GitHub and LinkedIn'], ['ls, cat <f>', 'look around'], ['clear', 'clear the screen']]),
+    help: () => table([['help', 'show this list'], ['whoami', 'who I am, in two lines'], ['skills', 'languages, frameworks and tools'], ['projects', 'what I have built'], ['open <n>', 'details of project number n'], ['experience', 'work and leadership'], ['education', 'where I studied'], ['certificates', 'courses I completed'], ['languages', 'what I speak'], ['interests', 'what I like to dig into'], ['contact', 'email, GitHub and LinkedIn'], ['cv', 'my CV as a one-page PDF'], ['ls, cat <f>', 'look around'], ['clear', 'clear the screen']]),
     whoami: () => [`<span class="t-hi">${esc(full)}</span>, ${esc(SITE.role[1])}`, 'Third-year Computer Science student at EPITECH Benin, based in Cotonou.'],
     skills: () => table(Object.entries(SITE.skills)),
     projects: () => [...SITE.projects.map(projectLine), '', 'Type <span class="t-hi">open 1</span> to read about one of them.'],
@@ -821,7 +829,9 @@ send.addEventListener('click', () => {
     certificates: () => table(SITE.certs.map(c => [c.when, c.title, c.kind + ', ' + c.by])),
     languages: () => [esc(SITE.languages)],
     interests: () => [esc(SITE.interests)],
-    contact: () => [`<span class="t-hi">${'email'.padEnd(PAD)}</span>${esc(SITE.email)}`, ...SITE.socials.map(x => `<span class="t-hi">${esc(x.label.toLowerCase().padEnd(PAD))}</span>${link(x.url.replace('https://', '').replace('www.', ''), x.url)}`)],
+    cv: () => ['One page, PDF: ' + link(SITE.cv.url, SITE.cv.url), 'It covers the same projects, plus my experience and education.'],
+    resume: () => C.cv(),
+    contact: () => [`<span class="t-hi">${'email'.padEnd(PAD)}</span>${esc(SITE.email)}`, ...SITE.socials.map(x => `<span class="t-hi">${esc(x.label.toLowerCase().padEnd(PAD))}</span>${link(x.url.replace('https://', '').replace('www.', ''), x.url)}`), `<span class="t-hi">${esc('cv'.padEnd(PAD))}</span>${link(SITE.cv.url, SITE.cv.url)}`],
     github: () => [link(SITE.socials[0].url.replace('https://', ''), SITE.socials[0].url)],
     linkedin: () => { const l = SITE.socials.find(x => x.label === 'LinkedIn'); return l ? [link(l.url.replace('https://www.', ''), l.url)] : ['No LinkedIn link set.']; },
     ls: () => [esc(Object.keys(files).join('   '))],
@@ -849,7 +859,7 @@ send.addEventListener('click', () => {
     else if (e.key === 'Tab' && inp.value.trim()) { const m = Object.keys(C).concat('clear').filter(k => k.startsWith(inp.value.trim().toLowerCase())); if (m.length === 1) { e.preventDefault(); inp.value = m[0] + ' '; } }
   });
   out.addEventListener('click', e => { if (!e.target.closest('a') && !String(getSelection()).length) inp.focus({ preventScroll: true }); });
-  $('#chips').innerHTML = ['help', 'whoami', 'skills', 'projects', 'open 1', 'experience', 'education', 'certificates', 'contact', 'clear'].map(c => `<button type="button" data-c="${c}">${c}</button>`).join('');
+  $('#chips').innerHTML = ['help', 'whoami', 'skills', 'projects', 'open 1', 'experience', 'education', 'certificates', 'cv', 'contact', 'clear'].map(c => `<button type="button" data-c="${c}">${c}</button>`).join('');
   $('#chips').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; run(b.dataset.c); if (fine) inp.focus({ preventScroll: true }); });
   run('whoami'); run('help'); out.scrollTop = 0;
 })();

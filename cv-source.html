@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Pacôme Ahoussinou — CV</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap">
+<style>
+/* Source for pacome-ahoussinou-cv.pdf. Render: Playwright page.pdf, A4, print backgrounds on. */
+:root{--ink:#14141b;--mut:#5a5a6b;--line:#d7d7e0;--blue:#2A3CFF;--tang:#FF5A1F}
+*{margin:0;box-sizing:border-box}
+@page{size:A4;margin:0}
+body{width:210mm;background:#fff;color:var(--ink);font:400 9.1pt/1.38 'Instrument Sans',Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{padding:10mm 13mm 6mm}
+header{display:grid;grid-template-columns:1fr auto;gap:8mm;align-items:end;border-bottom:2.5px solid var(--ink);padding-bottom:3mm}
+h1{font:400 28pt/.88 Anton,Impact,sans-serif;text-transform:uppercase;letter-spacing:-.01em}
+.role{font:400 14pt/1.1 'Instrument Serif',Georgia,serif;margin-top:2mm}
+.meta{font:400 8.4pt/1.6 'DM Mono',monospace;text-align:right;color:var(--mut)}
+.meta b{display:block;color:var(--ink);font-weight:500}
+.meta a{color:var(--ink);text-decoration:none}
+h2{font:500 8pt/1 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:3.4mm 0 1.8mm;padding-bottom:1.2mm;border-bottom:1px solid var(--line)}
+p.sum{font-size:9.6pt;line-height:1.45;max-width:175mm}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2mm 10mm}
+.skills div{display:grid;grid-template-columns:26mm 1fr;gap:3mm}
+.skills dt{font-weight:600}
+.row{display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:baseline;margin-top:1.7mm}
+.row:first-of-type{margin-top:0}
+.row b{font-weight:600;font-size:9.6pt}
+.row .when{font:400 8.2pt/1 'DM Mono',monospace;color:var(--mut);white-space:nowrap}
+.row .where{color:var(--mut)}
+.row p{color:#3c3c4a;margin-top:.8mm}
+.stack{font:400 8.2pt/1.4 'DM Mono',monospace;color:var(--blue)}
+ul.plain{list-style:none;padding:0}
+ul.plain li{position:relative;padding-left:4mm;margin-top:1mm;color:#3c3c4a}
+ul.plain li::before{content:"";position:absolute;left:0;top:1.7mm;width:1.8mm;height:1.8mm;background:var(--tang)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 10mm}
+footer{margin-top:4mm;padding-top:2.5mm;border-top:1px solid var(--line);font:400 7.8pt/1.4 'DM Mono',monospace;color:var(--mut);display:flex;justify-content:space-between}
+</style></head><body><div class="page">
+
+<header>
+  <div><h1>Pacôme Ahoussinou</h1><p class="role">Software &amp; Web Developer</p></div>
+  <p class="meta"><b>Cotonou, Benin</b>ahoussinoupacome123@gmail.com<br>github.com/ahoussinoupacome123-lang<br>linkedin.com/in/ahoussinou-pacome-182313333<br>ahoussinoupacome123-lang.github.io/portfolio</p>
+</header>
+
+<h2>Profile</h2>
+<p class="sum">Third-year Computer Science student at EPITECH Benin. I build web applications in React and Next.js, systems software in C and C++, and AI tools in Python, most of it shipped in a team, on a deadline, with Git. Two years of teaching ICT also mean I can explain technical work to people who do not write code.</p>
+
+<h2>Technical skills</h2>
+<div class="skills">
+  <div><dt>Languages</dt><dd>C, C++, Python, JavaScript, TypeScript, HTML, CSS</dd></div>
+  <div><dt>Web</dt><dd>React, Next.js, Node.js, REST APIs, Tailwind CSS</dd></div>
+  <div><dt>Databases</dt><dd>PostgreSQL, MySQL, SQLite</dd></div>
+  <div><dt>Systems</dt><dd>Linux/Ubuntu, Docker, GNU Make, CMake, Valgrind</dd></div>
+  <div><dt>Tools</dt><dd>Git, GitHub, VS Code, n8n, CSFML</dd></div>
+  <div><dt>Core</dt><dd>Algorithms, data structures, OOP, networking, concurrency</dd></div>
+</div>
+
+<h2>Selected projects</h2>
+<div class="row"><div><b>HemoLink</b> <span class="stack">Next.js · TypeScript · Tailwind CSS · Framer Motion · Leaflet</span>
+  <p>Blood-donation landing page for Benin: responsive front end built from a design, with scroll animations and an interactive map, so a first-time donor leaves knowing their eligibility and where to go.</p></div><span class="when">2026</span></div>
+<div class="row"><div><b>R-Type</b> <span class="stack">C++17 · UDP · CMake · Entity-Component-System</span>
+  <p>Networked multiplayer game built in a team: an authoritative server simulates it at 60 Hz for four players over a custom binary UDP protocol, on an engine we wrote ourselves.</p></div><span class="when">2026</span></div>
+<div class="row"><div><b>Sensai Q&amp;A</b> <span class="stack">Python · retrieval · local models</span>
+  <p>Local assistant that answers questions about a PDF and writes a sourced answer file, giving the page and a quote for every answer, with no data leaving the machine.</p></div><span class="when">2026</span></div>
+<div class="row"><div><b>Zappy</b> <span class="stack">C · C++ · sockets · concurrency</span>
+  <p>Client and server components with network communication and concurrent processes, in a Git-based team.</p></div><span class="when">2026</span></div>
+<p class="stack" style="margin-top:2.2mm">Also built: Raytracer, a 3D engine in C · AI website generator (FastAPI, Docker) · Loopwell, a desktop audio app · My Torch, a neural network from scratch · NanoTekSpice · My_Radar · My_TOP · My_LS · EPYTODO</p>
+
+<h2>Experience</h2>
+<div class="row"><div><b>ICT &amp; IT Teacher</b> — <span class="where">Datus International School, Ghana</span>
+  <p>Taught ICT and IT to senior high school students, prepared course material and mentored them through practical work.</p></div><span class="when">Oct – Dec 2025</span></div>
+<div class="row"><div><b>Teaching Assistant</b> — <span class="where">GISAM College, Ashaiman, Ghana</span>
+  <p>Planned lessons, built course materials, prepared examinations and organised the results.</p></div><span class="when">Feb – Aug 2024</span></div>
+
+<div class="two">
+  <div>
+    <h2>Education</h2>
+    <div class="row"><div><b>BSc Computer Science, third year</b><p>EPITECH Benin, Cotonou</p></div><span class="when">2024 – 2027</span></div>
+    <div class="row"><div><b>High School Diploma</b><p>Common Wealth College La Paz, Accra</p></div><span class="when">2022 – 2024</span></div>
+  </div>
+  <div>
+    <h2>Certificates</h2>
+    <ul class="plain">
+      <li>What the Internet Needs to Thrive — Internet Society, 2026</li>
+      <li>What the Internet Needs to Exist — Internet Society, 2026</li>
+      <li>Introduction to Web Design with HTML and CSS — CHISQUARES, 2024</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Also</h2>
+<p><b>President, EPIMUSIK</b> — I lead a student music club of about 30 members at EPITECH Benin.<br>
+<b>Languages</b> — French (native), English (professional), Spanish (elementary), Fon and Twi.</p>
+
+<footer><span>Pacôme Ahoussinou — Software &amp; Web Developer</span><span>ahoussinoupacome123-lang.github.io/portfolio</span></footer>
+</div></body></html>
